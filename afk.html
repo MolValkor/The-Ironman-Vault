@@ -103,88 +103,372 @@
 
         <!-- Content -->
         <div id="afk-tab-content">
-            <!-- Mining -->
+
+            <!-- ==================== MINING ==================== -->
             <div id="afk-content-0">
+                <div class="flex items-center gap-x-3 mb-4">
+                    <img src="https://oldschool.runescape.wiki/images/Mining_icon.png" alt="Mining" class="w-8 h-8">
+                    <h3 class="text-xl font-semibold text-[#5c4633]">Mining AFK Methods</h3>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+
+                    <!-- Early Game: Copper / Tin -->
+                    <div class="osrs-card rounded-xl p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <div>
+                                <div class="font-semibold text-lg">Copper &amp; Tin Ore</div>
+                                <div class="text-xs text-emerald-700">Level 1–15 • Very AFK</div>
+                            </div>
+                        </div>
+                        <div class="text-sm space-y-2">
+                            <div><strong>Location:</strong> Lumbridge Swamp or Varrock East Mine</div>
+                            <div><strong>AFK Time:</strong> 3–6 minutes per inventory</div>
+                            <div><strong>Ironman Tip:</strong> Mine near a bank or general store. Sell ores or smelt into bars.</div>
+                        </div>
+                    </div>
+
+                    <!-- Shooting Stars -->
+                    <div class="osrs-card rounded-xl p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <div>
+                                <div class="font-semibold text-lg">Shooting Stars</div>
+                                <div class="text-xs text-emerald-700">Level 10+ • Extremely AFK</div>
+                            </div>
+                            <span class="text-xs px-3 py-1 bg-emerald-900 text-emerald-300 rounded">Best Overall</span>
+                        </div>
+                        <div class="text-sm space-y-2">
+                            <div><strong>Location:</strong> Various (use Star Miners CC or plugin)</div>
+                            <div><strong>AFK Time:</strong> 15–30+ minutes per star</div>
+                            <div><strong>Ironman Tip:</strong> Great XP + stardust for rewards. Very low effort.</div>
+                        </div>
+                    </div>
+
+                    <!-- Mining Bone Shards -->
+                    <div class="osrs-card rounded-xl p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <div>
+                                <div class="font-semibold text-lg">Mining Bone Shards</div>
+                                <div class="text-xs text-emerald-700">Level 20+ • Very AFK</div>
+                            </div>
+                        </div>
+                        <div class="text-sm space-y-2">
+                            <div><strong>Location:</strong> Varlamore (Bone Shard mining spots)</div>
+                            <div><strong>AFK Time:</strong> 5–10 minutes</div>
+                            <div><strong>Ironman Tip:</strong> Bone shards are useful for Prayer training and other content.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ==================== WOODCUTTING ==================== -->
+            <div id="afk-content-1" class="hidden">
+                <div class="flex items-center gap-x-3 mb-4">
+                    <img src="https://oldschool.runescape.wiki/images/Woodcutting_icon.png" alt="Woodcutting" class="w-8 h-8">
+                    <h3 class="text-xl font-semibold text-[#5c4633]">Woodcutting AFK Methods</h3>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+
+                    <!-- Level 1-15: Regular Trees -->
+                    <div class="osrs-card rounded-xl p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <div>
+                                <div class="font-semibold text-lg">Regular Trees</div>
+                                <div class="text-xs text-emerald-700">Level 1–15 • AFK</div>
+                            </div>
+                        </div>
+                        <div class="text-sm space-y-2">
+                            <div><strong>Location:</strong> Lumbridge or Varrock (near banks/general stores)</div>
+                            <div><strong>AFK Time:</strong> 2–4 minutes per tree</div>
+                            <div><strong>Ironman Tip:</strong> Cut near a general store to sell logs immediately for early cash.</div>
+                        </div>
+                    </div>
+
+                    <!-- Level 15+: Oak Trees (User's example) -->
+                    <div class="osrs-card rounded-xl p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <div>
+                                <div class="font-semibold text-lg">Oak Trees</div>
+                                <div class="text-xs text-emerald-700">Level 15+ • Very AFK</div>
+                            </div>
+                            <span class="text-xs px-3 py-1 bg-emerald-900 text-emerald-300 rounded">Great Early Option</span>
+                        </div>
+                        <div class="text-sm space-y-2">
+                            <div><strong>Location:</strong> Lumbridge (near general store) or Varrock</div>
+                            <div><strong>AFK Time:</strong> 3–6 minutes per tree</div>
+                            <div><strong>Ironman Tip:</strong> Cut oaks in Lumbridge and either sell logs to the general store or fletch them into arrow shafts on the spot for extra profit/XP.</div>
+                        </div>
+                    </div>
+
+                    <!-- Willow Trees -->
+                    <div class="osrs-card rounded-xl p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <div>
+                                <div class="font-semibold text-lg">Willow Trees</div>
+                                <div class="text-xs text-emerald-700">Level 30+ • Very AFK</div>
+                            </div>
+                        </div>
+                        <div class="text-sm space-y-2">
+                            <div><strong>Location:</strong> Draynor Village or Port Sarim</div>
+                            <div><strong>AFK Time:</strong> 4–7 minutes</div>
+                            <div><strong>Ironman Tip:</strong> Close to a bank. Good for early cash or Fletching XP.</div>
+                        </div>
+                    </div>
+
+                    <!-- Redwood Trees -->
+                    <div class="osrs-card rounded-xl p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <div>
+                                <div class="font-semibold text-lg">Redwood Trees</div>
+                                <div class="text-xs text-emerald-700">Level 90+ • Extremely AFK</div>
+                            </div>
+                        </div>
+                        <div class="text-sm space-y-2">
+                            <div><strong>Location:</strong> Woodcutting Guild</div>
+                            <div><strong>AFK Time:</strong> 6–10 minutes</div>
+                            <div><strong>Ironman Tip:</strong> One of the best late-game AFK methods. High XP and very low effort.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ==================== FISHING ==================== -->
+            <div id="afk-content-2" class="hidden">
+                <div class="flex items-center gap-x-3 mb-4">
+                    <img src="https://oldschool.runescape.wiki/images/Fishing_icon.png" alt="Fishing" class="w-8 h-8">
+                    <h3 class="text-xl font-semibold text-[#5c4633]">Fishing AFK Methods</h3>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div class="osrs-card rounded-xl p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <div>
+                                <div class="font-semibold text-lg">Karambwan Fishing</div>
+                                <div class="text-xs text-emerald-700">Level 65+ • Semi-AFK</div>
+                            </div>
+                        </div>
+                        <div class="text-sm space-y-2">
+                            <div><strong>Location:</strong> Karamja (after Tai Bwo Wannai Trio)</div>
+                            <div><strong>AFK Time:</strong> 3–6 minutes between banking</div>
+                            <div><strong>Ironman Tip:</strong> Very consistent method. Good food source and decent profit.</div>
+                        </div>
+                    </div>
+
+                    <div class="osrs-card rounded-xl p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <div>
+                                <div class="font-semibold text-lg">Anglerfish</div>
+                                <div class="text-xs text-emerald-700">Level 82+ • Semi-AFK</div>
+                            </div>
+                        </div>
+                        <div class="text-sm space-y-2">
+                            <div><strong>Location:</strong> Piscatoris Fishing Colony</div>
+                            <div><strong>AFK Time:</strong> 4–7 minutes</div>
+                            <div><strong>Ironman Tip:</strong> Excellent late-game food source with solid AFK rates.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ==================== OTHER ==================== -->
+            <div id="afk-content-3" class="hidden">
+                <h3 class="text-xl font-semibold mb-6 text-[#5c4633]">Other AFK Methods</h3>
+
+                <!-- Firemaking -->
+                <div class="mb-8">
+                    <div class="flex items-center gap-x-3 mb-3">
+                        <img src="https://oldschool.runescape.wiki/images/Firemaking_icon.png" alt="Firemaking" class="w-7 h-7">
+                        <h4 class="font-semibold text-lg text-[#5c4633]">Firemaking</h4>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div class="osrs-card rounded-xl p-6">
+                            <div class="flex justify-between items-start mb-3">
+                                <div>
+                                    <div class="font-semibold">Wintertodt</div>
+                                    <div class="text-xs text-emerald-700">Level 50+ • Semi-AFK</div>
+                                </div>
+                            </div>
+                            <div class="text-sm space-y-2">
+                                <div><strong>Location:</strong> Wintertodt Camp</div>
+                                <div><strong>AFK Time:</strong> 4–8 minutes per game</div>
+                                <div><strong>Ironman Tip:</strong> One of the best early AFK methods. Excellent supplies (herbs, seeds, logs, crates).</div>
+                            </div>
+                        </div>
+                        <div class="osrs-card rounded-xl p-6">
+                            <div class="flex justify-between items-start mb-3">
+                                <div>
+                                    <div class="font-semibold">Bonfires</div>
+                                    <div class="text-xs text-emerald-700">Level 30+ • Very AFK</div>
+                                </div>
+                            </div>
+                            <div class="text-sm space-y-2">
+                                <div><strong>Location:</strong> Any bank with a fire (e.g. Grand Exchange, Varrock)</div>
+                                <div><strong>AFK Time:</strong> 3–6 minutes per inventory</div>
+                                <div><strong>Ironman Tip:</strong> Simple and safe. Good for training while doing other things.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fletching -->
+                <div class="mb-8">
+                    <div class="flex items-center gap-x-3 mb-3">
+                        <img src="https://oldschool.runescape.wiki/images/Fletching_icon.png" alt="Fletching" class="w-7 h-7">
+                        <h4 class="font-semibold text-lg text-[#5c4633]">Fletching</h4>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div class="osrs-card rounded-xl p-6">
+                            <div class="flex justify-between items-start mb-3">
+                                <div>
+                                    <div class="font-semibold">Fletching Arrow Shafts / Headless Arrows</div>
+                                    <div class="text-xs text-emerald-700">Level 1–50+ • Extremely AFK</div>
+                                </div>
+                            </div>
+                            <div class="text-sm space-y-2">
+                                <div><strong>Location:</strong> Anywhere with logs (bank standing)</div>
+                                <div><strong>AFK Time:</strong> 5–10+ minutes per inventory</div>
+                                <div><strong>Ironman Tip:</strong> Very low effort. Great for early Fletching XP while doing other activities.</div>
+                            </div>
+                        </div>
+                        <div class="osrs-card rounded-xl p-6">
+                            <div class="flex justify-between items-start mb-3">
+                                <div>
+                                    <div class="font-semibold">Stringing Bows</div>
+                                    <div class="text-xs text-emerald-700">Level 20+ • Very AFK</div>
+                                </div>
+                            </div>
+                            <div class="text-sm space-y-2">
+                                <div><strong>Location:</strong> Bank standing</div>
+                                <div><strong>AFK Time:</strong> 4–8 minutes</div>
+                                <div><strong>Ironman Tip:</strong> Good profit and XP once you have unstrung bows from drops or other methods.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Smithing -->
+                <div class="mb-8">
+                    <div class="flex items-center gap-x-3 mb-3">
+                        <img src="https://oldschool.runescape.wiki/images/Smithing_icon.png" alt="Smithing" class="w-7 h-7">
+                        <h4 class="font-semibold text-lg text-[#5c4633]">Smithing</h4>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div class="osrs-card rounded-xl p-6">
+                            <div class="flex justify-between items-start mb-3">
+                                <div>
+                                    <div class="font-semibold">Cannonball Making</div>
+                                    <div class="text-xs text-emerald-700">Level 35+ • Extremely AFK</div>
+                                </div>
+                            </div>
+                            <div class="text-sm space-y-2">
+                                <div><strong>Location:</strong> Any furnace (Edgeville recommended)</div>
+                                <div><strong>AFK Time:</strong> 8–15 minutes per inventory</div>
+                                <div><strong>Ironman Tip:</strong> One of the most AFK Smithing methods. Good profit and very low effort.</div>
+                            </div>
+                        </div>
+                        <div class="osrs-card rounded-xl p-6">
+                            <div class="flex justify-between items-start mb-3">
+                                <div>
+                                    <div class="font-semibold">Blast Furnace (Bars)</div>
+                                    <div class="text-xs text-emerald-700">Level 30+ • Semi-AFK</div>
+                                </div>
+                            </div>
+                            <div class="text-sm space-y-2">
+                                <div><strong>Location:</strong> Blast Furnace (Keldagrim)</div>
+                                <div><strong>AFK Time:</strong> 3–6 minutes between trips (with coal bag)</div>
+                                <div><strong>Ironman Tip:</strong> Best XP and profit for mid-high level Smithing. Requires some setup.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cooking -->
+                <div class="mb-8">
+                    <div class="flex items-center gap-x-3 mb-3">
+                        <img src="https://oldschool.runescape.wiki/images/Cooking_icon.png" alt="Cooking" class="w-7 h-7">
+                        <h4 class="font-semibold text-lg text-[#5c4633]">Cooking</h4>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div class="osrs-card rounded-xl p-6">
+                            <div class="flex justify-between items-start mb-3">
+                                <div>
+                                    <div class="font-semibold">Cooking Fish (Bank Standing)</div>
+                                    <div class="text-xs text-emerald-700">Level 1–80+ • Very AFK</div>
+                                </div>
+                            </div>
+                            <div class="text-sm space-y-2">
+                                <div><strong>Location:</strong> Any bank with a range (Lumbridge, Varrock, etc.)</div>
+                                <div><strong>AFK Time:</strong> 4–8 minutes per inventory</div>
+                                <div><strong>Ironman Tip:</strong> Simple and safe. Good for training while doing other low-attention activities.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sailing -->
+                <div>
+                    <div class="flex items-center gap-x-3 mb-3">
+                        <img src="https://oldschool.runescape.wiki/images/Sailing_icon.png" alt="Sailing" class="w-7 h-7" onerror="this.style.display='none'">
+                        <h4 class="font-semibold text-lg text-[#5c4633]">Sailing (New Skill - 2026)</h4>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div class="osrs-card rounded-xl p-6">
+                            <div class="flex justify-between items-start mb-3">
+                                <div>
+                                    <div class="font-semibold">Sailing Routes / Training</div>
+                                    <div class="text-xs text-emerald-700">Various levels • Semi-AFK</div>
+                                </div>
+                            </div>
+                            <div class="text-sm space-y-2">
+                                <div><strong>Location:</strong> Sailing areas (new content)</div>
+                                <div><strong>AFK Time:</strong> Varies by activity</div>
+                                <div><strong>Ironman Tip:</strong> Check current Sailing guides for the most AFK training methods available.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ==================== MOBILE OSRS SKILLING ==================== -->
+            <div class="mt-12 pt-8 border-t border-[#5c4633]">
+                <div class="mb-6">
+                    <div class="flex items-center gap-x-3 mb-2">
+                        <i class="fa-solid fa-mobile-alt text-sky-400 text-2xl"></i>
+                        <h3 class="text-2xl font-semibold tracking-tight">Mobile OSRS Skilling (Planned Section)</h3>
+                    </div>
+                    <p class="text-slate-400 max-w-3xl">This section will focus on the best truly low-attention methods for players who mainly play on mobile. Ideal for commuting, relaxing, or multitasking.</p>
+                </div>
+
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                     <div class="osrs-card rounded-xl p-6">
-                        <div class="flex justify-between items-start mb-4">
-                            <div class="font-semibold text-xl">Mining Bone Shards</div>
-                            <span class="text-xs px-3 py-1 bg-emerald-900 text-emerald-300 rounded">Very AFK</span>
-                        </div>
-                        <div class="space-y-3 text-sm">
-                            <div><strong>Location:</strong> Varlamore</div>
-                            <div><strong>AFK Duration:</strong> 4–8 minutes</div>
-                            <div><strong>Requirements:</strong> Access to Varlamore + Pickaxe</div>
-                            <div class="pt-2 text-emerald-300">Excellent for Ironmen. Bone shards have good use cases.</div>
-                        </div>
+                        <div class="font-semibold mb-1">Shooting Stars</div>
+                        <div class="text-sm text-slate-600">Extremely AFK • Minimal taps • Excellent on mobile</div>
                     </div>
-
                     <div class="osrs-card rounded-xl p-6">
-                        <div class="flex justify-between items-start mb-4">
-                            <div class="font-semibold text-xl">Shooting Stars</div>
-                            <span class="text-xs px-3 py-1 bg-emerald-900 text-emerald-300 rounded">Extremely AFK</span>
-                        </div>
-                        <div class="space-y-3 text-sm">
-                            <div><strong>Location:</strong> Various (use plugin/Discord)</div>
-                            <div><strong>AFK Duration:</strong> 15–30+ minutes</div>
-                            <div><strong>Requirements:</strong> Mining level + star access</div>
-                            <div class="pt-2 text-emerald-300">One of the most AFK methods in OSRS. Great for long sessions.</div>
-                        </div>
+                        <div class="font-semibold mb-1">Gemstone Crab</div>
+                        <div class="text-sm text-slate-600">Extremely AFK combat • Very mobile friendly</div>
+                    </div>
+                    <div class="osrs-card rounded-xl p-6">
+                        <div class="font-semibold mb-1">Cannonball Making</div>
+                        <div class="text-sm text-slate-600">Very AFK • Simple clicks • Great on mobile</div>
+                    </div>
+                    <div class="osrs-card rounded-xl p-6">
+                        <div class="font-semibold mb-1">Fletching Arrow Shafts</div>
+                        <div class="text-sm text-slate-600">Extremely AFK • Bank standing • Perfect for mobile</div>
+                    </div>
+                    <div class="osrs-card rounded-xl p-6">
+                        <div class="font-semibold mb-1">Bonfires</div>
+                        <div class="text-sm text-slate-600">Very AFK • Low attention</div>
+                    </div>
+                    <div class="osrs-card rounded-xl p-6">
+                        <div class="font-semibold mb-1">Redwood Trees</div>
+                        <div class="text-sm text-slate-600">Very AFK • High XP • Good on mobile</div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Woodcutting -->
-            <div id="afk-content-1" class="hidden">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    <div class="osrs-card rounded-xl p-6">
-                        <div class="flex justify-between items-start mb-4">
-                            <div class="font-semibold text-xl">Redwood Trees</div>
-                            <span class="text-xs px-3 py-1 bg-emerald-900 text-emerald-300 rounded">Very AFK</span>
-                        </div>
-                        <div class="space-y-3 text-sm">
-                            <div><strong>Location:</strong> Woodcutting Guild</div>
-                            <div><strong>AFK Duration:</strong> 5–8 minutes</div>
-                            <div><strong>Requirements:</strong> 90 Woodcutting</div>
-                            <div class="pt-2 text-emerald-300">Extremely AFK with excellent XP rates.</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Fishing -->
-            <div id="afk-content-2" class="hidden">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    <div class="osrs-card rounded-xl p-6">
-                        <div class="flex justify-between items-start mb-4">
-                            <div class="font-semibold text-xl">Karambwan Fishing</div>
-                            <span class="text-xs px-3 py-1 bg-emerald-900 text-emerald-300 rounded">Semi-AFK</span>
-                        </div>
-                        <div class="space-y-3 text-sm">
-                            <div><strong>Location:</strong> Karamja</div>
-                            <div><strong>AFK Duration:</strong> 3–5 minutes</div>
-                            <div><strong>Requirements:</strong> Tai Bwo Wannai Trio</div>
-                            <div class="pt-2 text-emerald-300">Reliable and consistent AFK method.</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Other -->
-            <div id="afk-content-3" class="hidden">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    <div class="osrs-card rounded-xl p-6">
-                        <div class="flex justify-between items-start mb-4">
-                            <div class="font-semibold text-xl">Wintertodt</div>
-                            <span class="text-xs px-3 py-1 bg-emerald-900 text-emerald-300 rounded">Semi-AFK</span>
-                        </div>
-                        <div class="space-y-3 text-sm">
-                            <div><strong>Location:</strong> Wintertodt Camp</div>
-                            <div><strong>AFK Duration:</strong> 4–7 minutes per game</div>
-                            <div><strong>Requirements:</strong> 50 Firemaking</div>
-                            <div class="pt-2 text-emerald-300">Great early-game AFK method with solid rewards.</div>
-                        </div>
-                    </div>
+                <div class="mt-4 text-xs text-slate-500">
+                    More optimized mobile guides coming in future updates.
                 </div>
             </div>
         </div>

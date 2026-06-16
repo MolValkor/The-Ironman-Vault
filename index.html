@@ -169,6 +169,31 @@
         button.rounded-2xl {
             border-radius: 4px !important;
         }
+
+        /* Global color overrides for cohesive OSRS feel */
+        .bg-slate-900 {
+            background-color: #2a2118 !important;
+        }
+
+        .bg-slate-950 {
+            background-color: #1a140f !important;
+        }
+
+        .border-slate-700 {
+            border-color: #5c4633 !important;
+        }
+
+        .border-slate-800 {
+            border-color: #3a2a1f !important;
+        }
+
+        .text-slate-400 {
+            color: #a38b6b !important;
+        }
+
+        .text-slate-300 {
+            color: #c2a47e !important;
+        }
     </style>
 </head>
 <body class="bg-slate-950 text-slate-200 osrs-dark">
@@ -345,9 +370,12 @@
 
     <!-- ROADMAP SECTION -->
     <div id="main-section-roadmap" class="max-w-screen-2xl mx-auto px-8 pt-8 pb-16 border-t border-slate-800">
+        <div class="flex items-center gap-x-3 mb-2">
+            <img src="https://oldschool.runescape.wiki/images/Map_icon.png" alt="Map" class="w-8 h-8">
+            <span class="uppercase tracking-[1.5px] text-xs font-mono text-amber-500">THE HEART OF THE SITE</span>
+        </div>
         <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-y-3 mb-8">
             <div>
-                <span class="uppercase tracking-[1.5px] text-xs font-mono text-amber-500">THE HEART OF THE SITE</span>
                 <h2 class="section-header tracking-tighter">Chronological Progression Roadmap</h2>
                 <p class="text-slate-400 mt-1">Click any step for full details, mode-specific notes, methods, and linked resources. Track your progress.</p>
             </div>
