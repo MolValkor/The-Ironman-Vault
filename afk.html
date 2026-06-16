@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AFK Training • The Ironman Vault</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap');
+        
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+            background-color: #1a140f;
+        }
+        
+        .font-display {
+            font-family: 'Space Grotesk', 'Inter', system_ui, sans-serif;
+            font-weight: 600;
+        }
+
+        .osrs-interface {
+            background-color: #c8b48a;
+            border: 3px solid #5c4633;
+            box-shadow: inset 0 2px 0 #e8d9b8;
+        }
+
+        .osrs-card {
+            background-color: #d4c4a8;
+            border: 2px solid #5c4633;
+            transition: all 0.2s ease;
+            color: #2c2118;
+        }
+
+        .osrs-card:hover {
+            border-color: #8b6f47;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.3);
+        }
+
+        .osrs-gold {
+            color: #d4af37;
+        }
+
+        .top-tab {
+            transition: all 0.1s ease;
+            border-radius: 4px 4px 0 0;
+        }
+
+        .top-tab.active {
+            background-color: #c8b48a;
+            color: #3a2a1f;
+            border-bottom: 3px solid #5c4633;
+            font-weight: 600;
+        }
+
+        .rounded-3xl, .rounded-2xl {
+            border-radius: 6px !important;
+        }
+    </style>
+</head>
+<body class="text-slate-200">
+    <!-- Navbar -->
+    <nav class="border-b border-[#5c4633] bg-[#1a140f]">
+        <div class="max-w-screen-2xl mx-auto px-8">
+            <div class="px-8 py-5 flex items-center justify-between">
+                <div class="flex items-center gap-x-3">
+                    <div class="flex items-center gap-x-2.5">
+                        <div class="w-9 h-9 bg-gradient-to-br from-amber-600 to-yellow-700 rounded-2xl flex items-center justify-center">
+                            <i class="fa-solid fa-vault text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <span class="font-display text-3xl font-semibold tracking-tighter">The Ironman Vault</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-x-2">
+                    <a href="index.html" class="px-5 py-2 text-sm font-medium text-slate-300 hover:text-white">Roadmap</a>
+                    <a href="afk.html" class="px-5 py-2 text-sm font-medium text-[#d4af37]">AFK Training</a>
+                    <a href="combat.html" class="px-5 py-2 text-sm font-medium text-slate-300 hover:text-white">Combat</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="max-w-screen-2xl mx-auto px-8 py-12">
+        <div class="mb-8">
+            <h1 class="text-4xl font-semibold tracking-tight mb-2">Away From Keyboard (AFK) Skilling</h1>
+            <p class="text-slate-400 max-w-2xl">Low-effort training methods perfect for Ironmen. Click on a skill to see the best AFK options available.</p>
+        </div>
+
+        <!-- Skill Tabs -->
+        <div class="flex flex-wrap border-b border-[#5c4633] mb-8 gap-x-1">
+            <button onclick="switchAfkTab(0)" id="afk-tab-0"
+                    class="afk-tab active px-6 py-3 text-sm font-medium border-b-2 border-[#d4af37] text-[#d4af37]">Mining</button>
+            <button onclick="switchAfkTab(1)" id="afk-tab-1"
+                    class="afk-tab px-6 py-3 text-sm font-medium text-slate-300 hover:text-white">Woodcutting</button>
+            <button onclick="switchAfkTab(2)" id="afk-tab-2"
+                    class="afk-tab px-6 py-3 text-sm font-medium text-slate-300 hover:text-white">Fishing</button>
+            <button onclick="switchAfkTab(3)" id="afk-tab-3"
+                    class="afk-tab px-6 py-3 text-sm font-medium text-slate-300 hover:text-white">Other</button>
+        </div>
+
+        <!-- Content -->
+        <div id="afk-tab-content">
+            <!-- Mining -->
+            <div id="afk-content-0">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                    <div class="osrs-card rounded-xl p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="font-semibold text-xl">Mining Bone Shards</div>
+                            <span class="text-xs px-3 py-1 bg-emerald-900 text-emerald-300 rounded">Very AFK</span>
+                        </div>
+                        <div class="space-y-3 text-sm">
+                            <div><strong>Location:</strong> Varlamore</div>
+                            <div><strong>AFK Duration:</strong> 4–8 minutes</div>
+                            <div><strong>Requirements:</strong> Access to Varlamore + Pickaxe</div>
+                            <div class="pt-2 text-emerald-300">Excellent for Ironmen. Bone shards have good use cases.</div>
+                        </div>
+                    </div>
+
+                    <div class="osrs-card rounded-xl p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="font-semibold text-xl">Shooting Stars</div>
+                            <span class="text-xs px-3 py-1 bg-emerald-900 text-emerald-300 rounded">Extremely AFK</span>
+                        </div>
+                        <div class="space-y-3 text-sm">
+                            <div><strong>Location:</strong> Various (use plugin/Discord)</div>
+                            <div><strong>AFK Duration:</strong> 15–30+ minutes</div>
+                            <div><strong>Requirements:</strong> Mining level + star access</div>
+                            <div class="pt-2 text-emerald-300">One of the most AFK methods in OSRS. Great for long sessions.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Woodcutting -->
+            <div id="afk-content-1" class="hidden">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div class="osrs-card rounded-xl p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="font-semibold text-xl">Redwood Trees</div>
+                            <span class="text-xs px-3 py-1 bg-emerald-900 text-emerald-300 rounded">Very AFK</span>
+                        </div>
+                        <div class="space-y-3 text-sm">
+                            <div><strong>Location:</strong> Woodcutting Guild</div>
+                            <div><strong>AFK Duration:</strong> 5–8 minutes</div>
+                            <div><strong>Requirements:</strong> 90 Woodcutting</div>
+                            <div class="pt-2 text-emerald-300">Extremely AFK with excellent XP rates.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fishing -->
+            <div id="afk-content-2" class="hidden">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div class="osrs-card rounded-xl p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="font-semibold text-xl">Karambwan Fishing</div>
+                            <span class="text-xs px-3 py-1 bg-emerald-900 text-emerald-300 rounded">Semi-AFK</span>
+                        </div>
+                        <div class="space-y-3 text-sm">
+                            <div><strong>Location:</strong> Karamja</div>
+                            <div><strong>AFK Duration:</strong> 3–5 minutes</div>
+                            <div><strong>Requirements:</strong> Tai Bwo Wannai Trio</div>
+                            <div class="pt-2 text-emerald-300">Reliable and consistent AFK method.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other -->
+            <div id="afk-content-3" class="hidden">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div class="osrs-card rounded-xl p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="font-semibold text-xl">Wintertodt</div>
+                            <span class="text-xs px-3 py-1 bg-emerald-900 text-emerald-300 rounded">Semi-AFK</span>
+                        </div>
+                        <div class="space-y-3 text-sm">
+                            <div><strong>Location:</strong> Wintertodt Camp</div>
+                            <div><strong>AFK Duration:</strong> 4–7 minutes per game</div>
+                            <div><strong>Requirements:</strong> 50 Firemaking</div>
+                            <div class="pt-2 text-emerald-300">Great early-game AFK method with solid rewards.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function switchAfkTab(tabIndex) {
+            document.querySelectorAll('[id^="afk-content-"]').forEach(el => el.classList.add('hidden'));
+            document.getElementById('afk-content-' + tabIndex).classList.remove('hidden');
+
+            document.querySelectorAll('.afk-tab').forEach((btn, index) => {
+                btn.classList.remove('border-b-2', 'border-[#d4af37]', 'text-[#d4af37]');
+                btn.classList.add('text-slate-300');
+                if (index === tabIndex) {
+                    btn.classList.add('border-b-2', 'border-[#d4af37]', 'text-[#d4af37]');
+                    btn.classList.remove('text-slate-300');
+                }
+            });
+        }
+
+        // Set default tab
+        window.onload = function() {
+            document.getElementById('afk-content-0').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>

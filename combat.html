@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combat Training • The Ironman Vault</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', system_ui, sans-serif; background-color: #1a140f; }
+        .font-display { font-family: 'Space Grotesk', 'Inter', system_ui, sans-serif; font-weight: 600; }
+        .osrs-card { background-color: #d4c4a8; border: 2px solid #5c4633; color: #2c2118; }
+        .osrs-header { color: #5c4633; }
+        .top-tab { border-radius: 4px 4px 0 0; }
+        .top-tab.active { background-color: #c8b48a; color: #3a2a1f; border-bottom: 3px solid #5c4633; }
+        .rounded-3xl, .rounded-2xl { border-radius: 6px !important; }
+    </style>
+</head>
+<body class="text-slate-200">
+    <nav class="border-b border-[#5c4633] bg-[#1a140f]">
+        <div class="max-w-screen-2xl mx-auto px-8">
+            <div class="px-8 py-5 flex items-center justify-between">
+                <div class="flex items-center gap-x-3">
+                    <div class="flex items-center gap-x-2.5">
+                        <div class="w-9 h-9 bg-gradient-to-br from-amber-600 to-yellow-700 rounded-2xl flex items-center justify-center">
+                            <i class="fa-solid fa-vault text-white text-2xl"></i>
+                        </div>
+                        <span class="font-display text-3xl font-semibold tracking-tighter">The Ironman Vault</span>
+                    </div>
+                </div>
+                <div class="flex items-center gap-x-2 text-sm">
+                    <a href="index.html" class="px-5 py-2 text-slate-300 hover:text-white">Roadmap</a>
+                    <a href="afk.html" class="px-5 py-2 text-slate-300 hover:text-white">AFK Training</a>
+                    <a href="combat.html" class="px-5 py-2 text-[#d4af37]">Combat Training</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="max-w-screen-2xl mx-auto px-8 py-12">
+        <h1 class="text-4xl font-semibold tracking-tight mb-8">Combat Training by Mode</h1>
+
+        <!-- HCIM Safe Methods -->
+        <div class="mb-8">
+            <div class="inline-flex items-center gap-x-2 px-4 py-1.5 bg-red-900/30 border border-red-800 rounded-xl text-sm mb-4">
+                <i class="fa-solid fa-exclamation-triangle text-red-400"></i>
+                <span class="font-semibold text-red-300">Hardcore Ironman Safe Training</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div class="osrs-card rounded-xl p-6">
+                    <div class="font-semibold text-xl mb-2">Sand Crabs / Ammonite Crabs</div>
+                    <div class="text-sm space-y-1">
+                        <div><strong>Location:</strong> Fossil Island / Crabclaw Isle</div>
+                        <div><strong>Safe Spot:</strong> Behind rocks — very limited aggro</div>
+                        <div class="pt-2 text-emerald-700">Extremely low risk. Great for long AFK sessions.</div>
+                    </div>
+                </div>
+
+                <div class="osrs-card rounded-xl p-6">
+                    <div class="font-semibold text-xl mb-2">Gemstone Crab</div>
+                    <div class="text-sm space-y-1">
+                        <div><strong>Location:</strong> Varlamore</div>
+                        <div><strong>Style:</strong> Extremely AFK combat training</div>
+                        <div class="pt-2 text-emerald-700">One of the best low-effort combat methods currently available.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <p class="text-center text-slate-400 mt-8">More combat methods (Regular Ironman + Bronzeman) coming soon.</p>
+    </div>
+</body>
+</html>

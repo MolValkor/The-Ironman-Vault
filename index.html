@@ -1,0 +1,2379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Ironman Vault • OSRS Ironman &amp; Bronzeman Guides</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap');
+        
+        :root {
+            --accent: #f59e0b;
+        }
+        
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+        
+        .font-display {
+            font-family: 'Space Grotesk', 'Inter', system_ui, sans-serif;
+            font-weight: 600;
+        }
+
+        .osrs-dark {
+            background-color: #0f172a;
+        }
+
+        .section-header {
+            font-size: 2.25rem;
+            line-height: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+        }
+
+        .step-card {
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .step-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        .phase-header {
+            background: linear-gradient(to right, #1e2937, #334155);
+        }
+
+        .nav-active {
+            color: #f59e0b;
+            border-bottom: 2px solid #f59e0b;
+        }
+
+        .modal {
+            animation: modalPop 0.2s ease-out forwards;
+        }
+
+        @keyframes modalPop {
+            from {
+                opacity: 0;
+                transform: scale(0.95) translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .resource-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+
+        .timeline-dot {
+            box-shadow: 0 0 0 4px #0f172a;
+        }
+
+        .osrs-gold {
+            color: #f59e0b;
+        }
+
+        .mode-badge {
+            font-size: 0.65rem;
+            padding: 1px 8px;
+            border-radius: 9999px;
+            font-weight: 600;
+            letter-spacing: -.5px;
+        }
+
+        .data-table {
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+
+        .compact-step {
+            transition: background-color 0.1s ease;
+        }
+        
+        .compact-step:hover {
+            background-color: #1e2937;
+        }
+
+        .progress-bar {
+            transition: width 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.3s ease;
+        }
+
+        .wiki-link {
+            color: #64748b;
+        }
+        
+        .wiki-link:hover {
+            color: #f59e0b;
+        }
+
+        /* OSRS-Inspired Styling - Fantasy / Classic Feel */
+        .osrs-interface {
+            background-color: #c8b48a;
+            border: 3px solid #5c4633;
+            box-shadow: inset 0 2px 0 #e8d9b8;
+        }
+
+        .osrs-card {
+            background-color: #d4c4a8;
+            border: 2px solid #5c4633;
+            transition: all 0.2s ease;
+            color: #2c2118;
+        }
+
+        .osrs-card:hover {
+            border-color: #8b6f47;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.3);
+        }
+
+        .osrs-gold {
+            color: #d4af37;
+        }
+
+        .osrs-header {
+            color: #5c4633;
+            text-shadow: 1px 1px 0 #e8d9b8;
+        }
+
+        .top-tab {
+            transition: all 0.1s ease;
+            border-radius: 4px 4px 0 0;
+        }
+
+        .top-tab.active {
+            background-color: #c8b48a;
+            color: #3a2a1f;
+            border-bottom: 3px solid #5c4633;
+            font-weight: 600;
+        }
+
+        /* Less rounded buttons for fantasy feel */
+        .rounded-3xl {
+            border-radius: 6px !important;
+        }
+
+        .rounded-2xl {
+            border-radius: 6px !important;
+        }
+
+        button.rounded-3xl, 
+        button.rounded-2xl {
+            border-radius: 4px !important;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-200 osrs-dark">
+    <!-- Navbar -->
+    <nav class="border-b border-slate-800 bg-slate-950/95 backdrop-blur-lg sticky top-0 z-50">
+        <div class="max-w-screen-2xl mx-auto">
+            <div class="px-8 py-5 flex items-center justify-between">
+                <div class="flex items-center gap-x-3">
+                    <!-- Logo -->
+                    <div class="flex items-center gap-x-2.5">
+                        <div class="w-9 h-9 bg-gradient-to-br from-amber-500 to-orange-600 rounded-2xl flex items-center justify-center shadow-inner">
+                            <i class="fa-solid fa-hammer text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <span class="font-display text-3xl font-semibold tracking-tighter">The Ironman Vault</span>
+                            <span class="text-[10px] font-mono tracking-[3px] text-slate-500 block -mt-1">OSRS</span>
+                        </div>
+                    </div>
+                    <div class="hidden md:flex items-center gap-x-1.5 ml-2">
+                        <div class="px-3 py-1 bg-slate-900 rounded-3xl text-xs font-medium flex items-center gap-x-1.5 border border-slate-800">
+                            <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+                            <span class="text-emerald-400 text-xs font-semibold">v0.9 • Curated 2026</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-x-2">
+                    <div class="hidden md:flex items-center bg-slate-900 border border-slate-800 rounded-3xl p-1 text-sm">
+                        <button onclick="switchMode('all')" id="mode-all"
+                                class="px-4 py-1.5 rounded-3xl font-medium transition-colors mode-btn active px-5">All Modes</button>
+                        <button onclick="switchMode('ironman')" id="mode-ironman"
+                                class="px-4 py-1.5 rounded-3xl font-medium transition-colors mode-btn">Ironman</button>
+                        <button onclick="switchMode('bronzeman')" id="mode-bronzeman"
+                                class="px-4 py-1.5 rounded-3xl font-medium transition-colors mode-btn">Bronzeman</button>
+                    </div>
+                    
+                    <a href="#roadmap" 
+                       class="hidden md:inline-flex items-center px-5 py-2.5 text-sm font-semibold hover:bg-slate-900 transition-colors rounded-3xl border border-slate-800 hover:border-slate-700">
+                        <i class="fa-solid fa-road mr-2"></i> Roadmap
+                    </a>
+                    <a href="#resources" 
+                       class="hidden md:inline-flex items-center px-5 py-2.5 text-sm font-semibold hover:bg-slate-900 transition-colors rounded-3xl border border-slate-800 hover:border-slate-700">
+                        <i class="fa-solid fa-book mr-2"></i> Resources
+                    </a>
+                    
+                    <button onclick="showContributeModal()"
+                            class="flex items-center gap-x-2 px-5 py-2.5 bg-white text-slate-950 hover:bg-amber-100 transition-all font-semibold text-sm rounded-3xl">
+                        <i class="fa-solid fa-plus"></i>
+                        <span class="hidden md:inline">Contribute</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Top Navigation Tabs -->
+    <div class="border-b border-[#5c4633] bg-[#1a140f]">
+        <div class="max-w-screen-2xl mx-auto px-8">
+            <div class="flex items-center gap-x-1 overflow-x-auto py-2 text-sm font-medium">
+                <a href="index.html" class="top-tab active px-6 py-2.5 rounded-t-lg whitespace-nowrap">Roadmap &amp; Progression</a>
+                <a href="quests.html" class="top-tab px-6 py-2.5 rounded-t-lg whitespace-nowrap text-slate-300 hover:text-white">Quest Guides</a>
+                <a href="combat.html" class="top-tab px-6 py-2.5 rounded-t-lg whitespace-nowrap text-slate-300 hover:text-white">Combat Training</a>
+                <a href="afk.html" class="top-tab px-6 py-2.5 rounded-t-lg whitespace-nowrap text-slate-300 hover:text-white">AFK Training</a>
+                <a href="money.html" class="top-tab px-6 py-2.5 rounded-t-lg whitespace-nowrap text-slate-300 hover:text-white">Money Making</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <div class="max-w-screen-2xl mx-auto px-8 pt-16 pb-12">
+        <div class="max-w-4xl">
+            <div class="inline-flex items-center gap-x-2 px-4 py-1.5 rounded-3xl bg-slate-900 border border-slate-800 mb-6">
+                <span class="text-emerald-400"><i class="fa-solid fa-check-double"></i></span>
+                <span class="text-sm font-medium">Community-curated • Chronological • Mode-aware</span>
+            </div>
+            
+            <h1 class="text-7xl md:text-7xl font-display font-semibold tracking-tighter leading-none mb-4">
+                Master your<br>
+                <span class="bg-gradient-to-r from-amber-400 via-orange-400 to-yellow-400 bg-clip-text text-transparent">restricted journey.</span>
+            </h1>
+            
+            <p class="max-w-lg text-xl text-slate-400 mb-8">
+                The ultimate chronological hub for <span class="font-semibold text-white">Ironman</span> and <span class="font-semibold text-amber-400">Bronzeman</span> accounts. 
+                We aggregate the best guides, videos, wiki data, and community knowledge into clear, dependency-ordered steps.
+            </p>
+            
+            <div class="flex flex-wrap items-center gap-3">
+                <a href="#roadmap" 
+                   class="inline-flex items-center justify-center gap-x-3 px-8 h-14 bg-white hover:bg-amber-50 active:bg-white transition-all text-slate-950 font-semibold rounded-3xl text-base shadow-xl shadow-black/20">
+                    <span>Explore the Roadmap</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+                
+                <button onclick="document.getElementById('resources').scrollIntoView({ behavior: 'smooth' })" 
+                        class="inline-flex items-center justify-center gap-x-3 px-7 h-14 border border-slate-700 hover:bg-slate-900 transition-all font-semibold rounded-3xl text-base">
+                    <i class="fa-solid fa-search"></i>
+                    <span>Browse All Resources</span>
+                </button>
+            </div>
+            
+            <div class="flex items-center gap-x-6 mt-8 text-sm">
+                <div class="flex -space-x-2">
+                    <div class="w-7 h-7 bg-slate-700 border border-slate-600 rounded-full flex items-center justify-center ring-2 ring-slate-950"><span class="text-[9px]">📜</span></div>
+                    <div class="w-7 h-7 bg-slate-700 border border-slate-600 rounded-full flex items-center justify-center ring-2 ring-slate-950"><span class="text-[9px]">🎥</span></div>
+                    <div class="w-7 h-7 bg-slate-700 border border-slate-600 rounded-full flex items-center justify-center ring-2 ring-slate-950"><span class="text-[9px]">🗺️</span></div>
+                </div>
+                <div class="text-slate-500 text-xs tracking-wide">Synthesized from OSRS Wiki • ironman.guide • 40+ YouTube series • r/ironscape • Bronzeman creators</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Stats / Explainer -->
+    <div class="max-w-screen-2xl mx-auto px-8 pb-12">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+            <div class="bg-slate-900 border border-slate-800 rounded-3xl p-5">
+                <div class="text-emerald-400 text-xs font-mono tracking-widest mb-1">IRONMAN</div>
+                <div class="text-3xl font-semibold">Official Mode</div>
+                <div class="text-slate-400 text-sm mt-1">No trading • No GE • Pure self-sufficiency. Hardcore &amp; Ultimate variants supported.</div>
+            </div>
+            <div class="bg-slate-900 border border-slate-800 rounded-3xl p-5">
+                <div class="text-amber-400 text-xs font-mono tracking-widest mb-1">BRONZEMAN</div>
+                <div class="text-3xl font-semibold">Community Mode</div>
+                <div class="text-slate-400 text-sm mt-1">Unlock items via drops/PK/crafting → permanent GE access for that item. Perfect for PvP builds.</div>
+            </div>
+            <div class="bg-slate-900 border border-slate-800 rounded-3xl p-5 col-span-2 md:col-span-1">
+                <div class="flex items-baseline gap-x-2">
+                    <div class="text-4xl font-semibold">120+</div>
+                </div>
+                <div class="text-slate-400">Curated steps across all phases</div>
+                <div class="mt-3 text-xs text-slate-500">Early → Mid → Late → Endgame</div>
+            </div>
+            <div class="bg-slate-900 border border-slate-800 rounded-3xl p-5">
+                <div class="text-xs text-slate-400 mb-2">CURRENTLY TRACKING</div>
+                <div class="font-mono text-2xl font-semibold">2,847</div>
+                <div class="text-emerald-400 text-xs">active restricted accounts (community est.)</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODE EXPLAINER -->
+    <div class="max-w-screen-2xl mx-auto px-8 pb-8" id="about-modes">
+        <div class="flex items-center justify-between mb-4">
+            <h2 class="text-xl font-semibold tracking-tight">How the modes differ in practice</h2>
+        </div>
+        <div class="grid md:grid-cols-2 gap-4">
+            <div class="bg-slate-900/70 border border-slate-800 rounded-3xl p-6">
+                <div class="flex items-center gap-x-3 mb-3">
+                    <i class="fa-solid fa-shield-halved text-emerald-400 text-xl"></i>
+                    <span class="font-semibold">Ironman</span>
+                </div>
+                <ul class="text-sm text-slate-300 space-y-1.5 pl-1">
+                    <li class="flex gap-x-2"><span class="text-emerald-400 mt-1">•</span> Complete self-sufficiency from day one</li>
+                    <li class="flex gap-x-2"><span class="text-emerald-400 mt-1">•</span> No Grand Exchange or player trading (except bonds in some cases)</li>
+                    <li class="flex gap-x-2"><span class="text-emerald-400 mt-1">•</span> Focus on efficient skilling, questing, and bossing for supplies</li>
+                    <li class="flex gap-x-2"><span class="text-emerald-400 mt-1">•</span> Official hiscores &amp; support in RuneLite</li>
+                </ul>
+            </div>
+            <div class="bg-slate-900/70 border border-amber-900/40 rounded-3xl p-6">
+                <div class="flex items-center gap-x-3 mb-3">
+                    <i class="fa-solid fa-unlock text-amber-400 text-xl"></i>
+                    <span class="font-semibold">Bronzeman</span>
+                    <span class="mode-badge bg-amber-900 text-amber-300">COMMUNITY</span>
+                </div>
+                <ul class="text-sm text-slate-300 space-y-1.5 pl-1">
+                    <li class="flex gap-x-2"><span class="text-amber-400 mt-1">•</span> Start restricted like Ironman</li>
+                    <li class="flex gap-x-2"><span class="text-amber-400 mt-1">•</span> <strong>Unlock</strong> an item permanently the first time you obtain it (drop, craft, or PK)</li>
+                    <li class="flex gap-x-2"><span class="text-amber-400 mt-1">•</span> After unlock → buy/sell that item freely on the GE</li>
+                    <li class="flex gap-x-2"><span class="text-amber-400 mt-1">•</span> Ideal for building powerful PK accounts over time</li>
+                </ul>
+                <div class="mt-3 text-[10px] text-amber-300/70">Requires RuneLite Bronzeman plugin for enforcement</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ROADMAP SECTION -->
+    <div id="main-section-roadmap" class="max-w-screen-2xl mx-auto px-8 pt-8 pb-16 border-t border-slate-800">
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-y-3 mb-8">
+            <div>
+                <span class="uppercase tracking-[1.5px] text-xs font-mono text-amber-500">THE HEART OF THE SITE</span>
+                <h2 class="section-header tracking-tighter">Chronological Progression Roadmap</h2>
+                <p class="text-slate-400 mt-1">Click any step for full details, mode-specific notes, methods, and linked resources. Track your progress.</p>
+            </div>
+            
+            <div class="flex items-center gap-x-4">
+                <!-- Progress Overview -->
+                <div class="bg-slate-900 border border-slate-800 rounded-3xl px-5 py-2 flex items-center gap-x-4 text-sm">
+                    <div>
+                        <span id="progress-text" class="font-mono font-semibold text-lg">0/42</span>
+                        <span class="text-slate-500 text-xs ml-1">STEPS</span>
+                    </div>
+                    <div class="w-28 bg-slate-800 rounded-full h-2.5 overflow-hidden">
+                        <div id="progress-bar" 
+                             class="progress-bar h-2.5 bg-gradient-to-r from-emerald-400 to-teal-400 rounded-full" 
+                             style="width: 0%"></div>
+                    </div>
+                </div>
+                
+                <button onclick="resetProgress()" 
+                        class="text-xs px-4 py-2 border border-slate-700 hover:bg-slate-900 rounded-3xl flex items-center gap-x-1.5 text-slate-400 hover:text-slate-300">
+                    <i class="fa-solid fa-undo text-xs"></i>
+                    <span>Reset</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Filters -->
+        <div class="flex flex-wrap items-center gap-x-3 gap-y-2 mb-5">
+            <div class="text-xs uppercase tracking-widest text-slate-500 px-1">Filter by phase:</div>
+            
+            <div class="flex flex-wrap gap-2" id="phase-filters">
+                <!-- Populated by JS -->
+            </div>
+            
+            <div class="flex-1"></div>
+            
+            <div class="relative w-full md:w-72">
+                <input type="text" id="step-search" placeholder="Search steps (e.g. Wintertodt, Barrows, SOTE)..." 
+                       onkeyup="filterSteps()"
+                       class="w-full bg-slate-900 border border-slate-700 focus:border-slate-500 transition-colors text-sm placeholder:text-slate-500 pl-10 py-3 rounded-3xl outline-none">
+                <i class="fa-solid fa-search absolute left-4 top-4 text-slate-500"></i>
+            </div>
+        </div>
+
+        <!-- Steps Container -->
+        <div id="steps-container" class="space-y-8">
+            <!-- Dynamically populated by JavaScript -->
+        </div>
+        
+        <div class="mt-6 text-center">
+            <button onclick="showAllSteps()" 
+                    class="text-xs px-6 py-2.5 text-slate-400 hover:text-white border border-slate-700 hover:border-slate-600 rounded-3xl transition-colors">
+                <i class="fa-solid fa-list mr-2"></i> Show all steps (expand everything)
+            </button>
+        </div>
+
+        <!-- EFFICIENT QUEST ORDER SECTION -->
+        <div class="mt-12 pt-8 border-t border-slate-700">
+            <div class="mb-6">
+                <div class="flex items-center gap-x-3 mb-2">
+                    <i class="fa-solid fa-route text-amber-400 text-2xl"></i>
+                    <h3 class="text-3xl font-semibold tracking-tight">Efficient Early Quest Order</h3>
+                </div>
+                <p class="text-slate-400 max-w-3xl">This recommended order respects level requirements, gives big XP rewards early, and minimizes painful travel. Quests are clustered geographically where possible and build on each other.</p>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-sm border border-slate-700 rounded-2xl overflow-hidden">
+                    <thead class="bg-slate-900">
+                        <tr class="text-left">
+                            <th class="px-4 py-3 font-semibold w-12">#</th>
+                            <th class="px-4 py-3 font-semibold">Quest</th>
+                            <th class="px-4 py-3 font-semibold">Recommended Stats</th>
+                            <th class="px-4 py-3 font-semibold">Why Now?</th>
+                            <th class="px-4 py-3 font-semibold">Key Rewards</th>
+                            <th class="px-4 py-3 font-semibold">Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-700 bg-slate-950">
+                        <!-- Quest 1 -->
+                        <tr>
+                            <td class="px-4 py-4 font-mono text-amber-400 font-semibold">1</td>
+                            <td class="px-4 py-4 font-semibold">Cook's Assistant</td>
+                            <td class="px-4 py-4 text-slate-400">None</td>
+                            <td class="px-4 py-4">Very fast starter quest in Lumbridge. Good early Cooking XP.</td>
+                            <td class="px-4 py-4">Cooking XP, quest points</td>
+                            <td class="px-4 py-4 text-xs text-slate-400">Perfect first quest. No travel needed.</td>
+                        </tr>
+                        <!-- Quest 2 -->
+                        <tr>
+                            <td class="px-4 py-4 font-mono text-amber-400 font-semibold">2</td>
+                            <td class="px-4 py-4 font-semibold">Rune Mysteries</td>
+                            <td class="px-4 py-4 text-slate-400">None</td>
+                            <td class="px-4 py-4">Unlocks Aubury's rune shop + early Runecrafting access. Still in Lumbridge/Varrock area.</td>
+                            <td class="px-4 py-4">Runes, quest points, RC access</td>
+                            <td class="px-4 py-4 text-xs text-slate-400">Do right after Cook's. Very quick.</td>
+                        </tr>
+                        <!-- Quest 3 -->
+                        <tr>
+                            <td class="px-4 py-4 font-mono text-amber-400 font-semibold">3</td>
+                            <td class="px-4 py-4 font-semibold">Waterfall Quest</td>
+                            <td class="px-4 py-4 text-slate-400">None (combat helpful)</td>
+                            <td class="px-4 py-4"><strong>Do this early.</strong> Gives massive Attack + Strength XP. Makes every combat quest after much easier.</td>
+                            <td class="px-4 py-4">~13k Attack &amp; Strength XP, Glarial's amulet</td>
+                            <td class="px-4 py-4 text-xs text-emerald-400">High priority. Big combat boost early.</td>
+                        </tr>
+                        <!-- Quest 4 -->
+                        <tr>
+                            <td class="px-4 py-4 font-mono text-amber-400 font-semibold">4</td>
+                            <td class="px-4 py-4 font-semibold">Tree Gnome Village</td>
+                            <td class="px-4 py-4 text-slate-400">Some combat recommended</td>
+                            <td class="px-4 py-4">Unlocks Spirit Tree teleport. Good combat XP. Moves you toward better travel.</td>
+                            <td class="px-4 py-4">Spirit Tree access, quest points</td>
+                            <td class="px-4 py-4 text-xs text-slate-400">Do after Waterfall for easier combat.</td>
+                        </tr>
+                        <!-- Quest 5 -->
+                        <tr>
+                            <td class="px-4 py-4 font-mono text-amber-400 font-semibold">5</td>
+                            <td class="px-4 py-4 font-semibold">The Grand Tree</td>
+                            <td class="px-4 py-4 text-slate-400">Tree Gnome Village completed</td>
+                            <td class="px-4 py-4">Unlocks Gnome Gliders + more travel options. Good follow-up to Tree Gnome Village.</td>
+                            <td class="px-4 py-4">Gnome Glider network, quest points</td>
+                            <td class="px-4 py-4 text-xs text-slate-400">Geographic efficiency — same area.</td>
+                        </tr>
+                        <!-- Quest 6 -->
+                        <tr>
+                            <td class="px-4 py-4 font-mono text-amber-400 font-semibold">6</td>
+                            <td class="px-4 py-4 font-semibold">Lost City</td>
+                            <td class="px-4 py-4 text-slate-400">Some crafting + combat</td>
+                            <td class="px-4 py-4">Unlocks Zanaris + Dragon dagger. Good combat XP and a strong early weapon (especially useful for Bronzeman).</td>
+                            <td class="px-4 py-4">Dragon dagger, Zanaris access</td>
+                            <td class="px-4 py-4 text-xs text-amber-400">Bronzeman: Dragon dagger is a great early unlock.</td>
+                        </tr>
+                        <!-- Quest 7 -->
+                        <tr>
+                            <td class="px-4 py-4 font-mono text-amber-400 font-semibold">7</td>
+                            <td class="px-4 py-4 font-semibold">Fairytale I - Growing Pains</td>
+                            <td class="px-4 py-4 text-slate-400">Lost City recommended</td>
+                            <td class="px-4 py-4">Starts the fairy ring questline. Important for long-term travel efficiency.</td>
+                            <td class="px-4 py-4">Quest points, progress toward fairy rings</td>
+                            <td class="px-4 py-4 text-xs text-slate-400">Do this before major Ardougne content.</td>
+                        </tr>
+                        <!-- Quest 8 -->
+                        <tr>
+                            <td class="px-4 py-4 font-mono text-amber-400 font-semibold">8</td>
+                            <td class="px-4 py-4 font-semibold">Fairytale II - Cure a Queen</td>
+                            <td class="px-4 py-4 text-slate-400">Fairytale I + some combat</td>
+                            <td class="px-4 py-4">Completes fairy ring access. One of the biggest early QoL upgrades.</td>
+                            <td class="px-4 py-4">Full fairy ring network</td>
+                            <td class="px-4 py-4 text-xs text-emerald-400">Major travel unlock. Do this relatively early.</td>
+                        </tr>
+                        <!-- Quest 9 -->
+                        <tr>
+                            <td class="px-4 py-4 font-mono text-amber-400 font-semibold">9</td>
+                            <td class="px-4 py-4 font-semibold">Fight Arena</td>
+                            <td class="px-4 py-4 text-slate-400">After Waterfall (easier with stats)</td>
+                            <td class="px-4 py-4">Good combat XP + unlocks. Better done after Waterfall's big XP boost.</td>
+                            <td class="px-4 py-4">Combat XP, quest points</td>
+                            <td class="px-4 py-4 text-xs text-slate-400">Geographic + level friendly after Waterfall.</td>
+                        </tr>
+                        <!-- Quest 10 -->
+                        <tr>
+                            <td class="px-4 py-4 font-mono text-amber-400 font-semibold">10</td>
+                            <td class="px-4 py-4 font-semibold">Priest in Peril</td>
+                            <td class="px-4 py-4 text-slate-400">Some combat</td>
+                            <td class="px-4 py-4">Unlocks Morytania. Required for many later quests and content.</td>
+                            <td class="px-4 py-4">Morytania access, quest points</td>
+                            <td class="px-4 py-4 text-xs text-slate-400">Opens up a whole new region.</td>
+                        </tr>
+                        <!-- Quest 11 -->
+                        <tr>
+                            <td class="px-4 py-4 font-mono text-amber-400 font-semibold">11</td>
+                            <td class="px-4 py-4 font-semibold">Nature Spirit</td>
+                            <td class="px-4 py-4 text-slate-400">Priest in Peril completed</td>
+                            <td class="px-4 py-4">Unlocks Mort Myre Swamp + good early prayer training method.</td>
+                            <td class="px-4 py-4">Mort Myre access, prayer XP method</td>
+                            <td class="px-4 py-4 text-xs text-slate-400">Strong follow-up to Priest in Peril.</td>
+                        </tr>
+                        <!-- Quest 12 -->
+                        <tr>
+                            <td class="px-4 py-4 font-mono text-amber-400 font-semibold">12</td>
+                            <td class="px-4 py-4 font-semibold">Recipe for Disaster (Key Subquests)</td>
+                            <td class="px-4 py-4 text-slate-400">Varies by subquest</td>
+                            <td class="px-4 py-4"><strong>Major goal.</strong> Work through subquests as you meet requirements. Leads to Barrows Gloves.</td>
+                            <td class="px-4 py-4">Barrows Gloves + many useful rewards</td>
+                            <td class="px-4 py-4 text-xs text-emerald-400">Biggest early/mid milestone. Do subquests as you can.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="mt-4 text-xs text-slate-500 px-1">
+                <strong>Tip:</strong> After getting Fairy Rings (step 8), travel becomes much less painful. This is why we prioritize it before heavy Ardougne content.
+            </div>
+        </div>
+
+        <!-- COMBAT TRAINING BY MODE SECTION -->
+        <div id="main-section-combat" class="mt-12 pt-8 border-t border-slate-700" style="display: none;">
+            <div class="mb-6">
+                <div class="flex items-center gap-x-3 mb-2">
+                    <i class="fa-solid fa-shield-alt text-red-400 text-2xl"></i>
+                    <h3 class="text-3xl font-semibold tracking-tight">Combat Training by Mode</h3>
+                </div>
+                <p class="text-slate-400 max-w-3xl">Different Ironman modes have very different risk tolerances. Here are tailored combat training recommendations.</p>
+            </div>
+
+            <!-- Tabs -->
+            <div class="flex border-b border-slate-700 mb-6">
+                <button onclick="switchCombatTab(0)" id="combat-tab-0"
+                        class="combat-tab px-6 py-3 font-medium border-b-2 border-amber-400 text-amber-400">Safe Methods (HCIM)</button>
+                <button onclick="switchCombatTab(1)" id="combat-tab-1"
+                        class="combat-tab px-6 py-3 font-medium text-slate-400 hover:text-white">Efficient Methods (Regular)</button>
+                <button onclick="switchCombatTab(2)" id="combat-tab-2"
+                        class="combat-tab px-6 py-3 font-medium text-slate-400 hover:text-white">Bronzeman / PK Focus</button>
+            </div>
+
+            <!-- Tab Content -->
+            <div id="combat-tab-content">
+
+                <!-- HCIM Safe Methods Tab -->
+                <div id="combat-content-0">
+                    <div class="mb-4">
+                        <div class="inline-flex items-center gap-x-2 px-4 py-1.5 bg-red-900/30 border border-red-800 rounded-2xl text-sm">
+                            <i class="fa-solid fa-exclamation-triangle text-red-400"></i>
+                            <span class="font-semibold text-red-300">Hardcore Ironman Safe Training</span>
+                        </div>
+                    </div>
+
+                    <!-- Filters for HCIM Safe Methods -->
+                    <div class="flex flex-wrap gap-2 mb-5">
+                        <button onclick="filterHcimMethods('all')" class="hcim-filter px-4 py-1.5 text-xs rounded-3xl bg-white text-slate-950 font-medium">All</button>
+                        <button onclick="filterHcimMethods('early')" class="hcim-filter px-4 py-1.5 text-xs rounded-3xl bg-slate-800 text-slate-300 hover:bg-slate-700">Early Game</button>
+                        <button onclick="filterHcimMethods('mid')" class="hcim-filter px-4 py-1.5 text-xs rounded-3xl bg-slate-800 text-slate-300 hover:bg-slate-700">Mid Game</button>
+                        <button onclick="filterHcimMethods('slayer')" class="hcim-filter px-4 py-1.5 text-xs rounded-3xl bg-slate-800 text-slate-300 hover:bg-slate-700">Slayer Tasks</button>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="hcim-methods-grid">
+                        <!-- Safe Spot Card 1 -->
+                        <div class="hcim-card bg-slate-900 border border-slate-700 rounded-2xl p-5" data-category="early">
+                            <div class="flex justify-between items-start mb-3">
+                                <div>
+                                    <div class="font-semibold">Sand Crabs / Ammonite Crabs</div>
+                                    <div class="text-xs text-emerald-400">Early Game • Very Safe</div>
+                                </div>
+                                <span class="text-xs px-2 py-0.5 bg-emerald-900 text-emerald-300 rounded">Recommended</span>
+                            </div>
+                            <div class="text-sm text-slate-300 space-y-2">
+                                <p><strong>Location:</strong> Fossil Island or Crabclaw Isle</p>
+                                <p><strong>Safe Spot:</strong> Stand behind rocks or use the island safespot. Very limited aggro range.</p>
+                                <p><strong>Why Safe for HCIM:</strong> Extremely low damage. Excellent for long AFK sessions with almost zero risk.</p>
+                            </div>
+                            <div class="mt-3 text-xs text-slate-400">Requirements: Bone Voyage quest (or access to Crabclaw Isle)</div>
+                        </div>
+
+                        <!-- Safe Spot Card 2 -->
+                        <div class="hcim-card bg-slate-900 border border-slate-700 rounded-2xl p-5" data-category="early mid">
+                            <div class="flex justify-between items-start mb-3">
+                                <div>
+                                    <div class="font-semibold">Experiments (Safespot)</div>
+                                    <div class="text-xs text-emerald-400">Early-Mid Game • Very Safe</div>
+                                </div>
+                            </div>
+                            <div class="text-sm text-slate-300 space-y-2">
+                                <p><strong>Location:</strong> Stronghold of Security (4th floor)</p>
+                                <p><strong>Safe Spot:</strong> Corner or limited aggro position where only 1-2 can reach you.</p>
+                                <p><strong>Why Safe for HCIM:</strong> Very consistent and low-risk. Great for safely building Defence and HP.</p>
+                            </div>
+                            <div class="mt-3 text-xs text-slate-400">Requirements: Access to Stronghold of Security</div>
+                        </div>
+
+                        <!-- Safe Spot Card 3 -->
+                        <div class="hcim-card bg-slate-900 border border-slate-700 rounded-2xl p-5" data-category="early">
+                            <div class="flex justify-between items-start mb-3">
+                                <div>
+                                    <div class="font-semibold">Flesh Crawlers</div>
+                                    <div class="text-xs text-emerald-400">Early Game • Safe</div>
+                                </div>
+                            </div>
+                            <div class="text-sm text-slate-300 space-y-2">
+                                <p><strong>Location:</strong> Edgeville Dungeon (level 2)</p>
+                                <p><strong>Safe Spot:</strong> Use the ladder area or wall to limit aggro to 1-2 at a time.</p>
+                                <p><strong>Why Good:</strong> Decent XP + herb/rune drops. Manageable risk with proper positioning.</p>
+                            </div>
+                            <div class="mt-3 text-xs text-slate-400">Requirements: Some Defence levels recommended</div>
+                        </div>
+
+                        <!-- Safe Spot Card 4 -->
+                        <div class="hcim-card bg-slate-900 border border-slate-700 rounded-2xl p-5" data-category="early mid">
+                            <div class="flex justify-between items-start mb-3">
+                                <div>
+                                    <div class="font-semibold">Moss Giants (Safespot)</div>
+                                    <div class="text-xs text-emerald-400">Early-Mid Game</div>
+                                </div>
+                            </div>
+                            <div class="text-sm text-slate-300 space-y-2">
+                                <p><strong>Location:</strong> Varrock Sewers or near Fishing Guild</p>
+                                <p><strong>Safe Spot:</strong> Use rocks/walls to limit how many can attack you.</p>
+                                <p><strong>Why Useful:</strong> Good training while collecting big bones and mossy keys safely.</p>
+                            </div>
+                            <div class="mt-3 text-xs text-slate-400">Solid option for building toward mid-game content.</div>
+                        </div>
+
+                        <!-- New Card 5: Hill Giants -->
+                        <div class="hcim-card bg-slate-900 border border-slate-700 rounded-2xl p-5" data-category="early">
+                            <div class="flex justify-between items-start mb-3">
+                                <div>
+                                    <div class="font-semibold">Hill Giants</div>
+                                    <div class="text-xs text-emerald-400">Early Game • Safe</div>
+                                </div>
+                            </div>
+                            <div class="text-sm text-slate-300 space-y-2">
+                                <p><strong>Location:</strong> Edgeville Dungeon or near the Fishing Guild</p>
+                                <p><strong>Safe Spot:</strong> Use corners or obstacles to fight 1 at a time safely.</p>
+                                <p><strong>Why Safe for HCIM:</strong> Predictable and easy to control. Good for early combat training.</p>
+                            </div>
+                            <div class="mt-3 text-xs text-slate-400">Great for collecting big bones safely.</div>
+                        </div>
+
+                        <!-- New Card 6: Rock Crabs -->
+                        <div class="hcim-card bg-slate-900 border border-slate-700 rounded-2xl p-5" data-category="early mid">
+                            <div class="flex justify-between items-start mb-3">
+                                <div>
+                                    <div class="font-semibold">Rock Crabs (Rellekka)</div>
+                                    <div class="text-xs text-emerald-400">Early-Mid Game • Very Safe</div>
+                                </div>
+                            </div>
+                            <div class="text-sm text-slate-300 space-y-2">
+                                <p><strong>Location:</strong> Rellekka coastline (near the rock crabs)</p>
+                                <p><strong>Safe Spot:</strong> Position yourself so only 1-2 crabs can reach you.</p>
+                                <p><strong>Why Safe for HCIM:</strong> Extremely AFK-friendly with very low damage output.</p>
+                            </div>
+                            <div class="mt-3 text-xs text-slate-400">Requires some travel but very safe once set up.</div>
+                        </div>
+
+                        <!-- New Card 7: Early Slayer Safe Tasks -->
+                        <div class="hcim-card bg-slate-900 border border-slate-700 rounded-2xl p-5" data-category="slayer early">
+                            <div class="flex justify-between items-start mb-3">
+                                <div>
+                                    <div class="font-semibold">Early Slayer Tasks (Safe)</div>
+                                    <div class="text-xs text-emerald-400">Early Game • Safe</div>
+                                </div>
+                            </div>
+                            <div class="text-sm text-slate-300 space-y-2">
+                                <p><strong>Recommended Tasks:</strong> Cave Bugs, Cave Slimes, Lizards, Birds</p>
+                                <p><strong>Safe Spot Strategy:</strong> Use terrain or safespots on most early tasks. Avoid multi-combat areas when possible.</p>
+                                <p><strong>Why Good for HCIM:</strong> Builds Slayer while keeping risk very low.</p>
+                            </div>
+                            <div class="mt-3 text-xs text-slate-400">Focus on tasks with natural safespots or low damage output.</div>
+                        </div>
+
+                        <!-- Gemstone Crab (AFK Combat) -->
+                        <div class="hcim-card bg-slate-900 border border-slate-700 rounded-2xl p-5" data-category="early mid">
+                            <div class="flex justify-between items-start mb-3">
+                                <div>
+                                    <div class="font-semibold">Gemstone Crab</div>
+                                    <div class="text-xs text-emerald-400">Early-Mid Game • Extremely AFK</div>
+                                </div>
+                                <span class="text-xs px-2 py-0.5 bg-emerald-900 text-emerald-300 rounded">Highly Recommended</span>
+                            </div>
+                            <div class="text-sm text-slate-300 space-y-2">
+                                <p><strong>Location:</strong> Varlamore (Gemstone Crab area)</p>
+                                <p><strong>Safe Spot:</strong> Stand in the designated safe area where the crab attacks you automatically with very low effort required.</p>
+                                <p><strong>Why Excellent for HCIM:</strong> One of the best AFK combat training methods currently available. Extremely low risk and attention required.</p>
+                            </div>
+                            <div class="mt-3 text-xs text-slate-400">Requirements: Access to Varlamore</div>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 text-xs text-slate-500 px-1">
+                        <strong>HCIM Tip:</strong> Always have an emergency teleport (Ring of dueling, Games necklace, or home teleport) ready. Never risk content you're not confident surviving.
+                    </div>
+                </div>
+
+                <!-- Regular Ironman Tab (Placeholder) -->
+                <div id="combat-content-1" class="hidden">
+                    <div class="text-center py-12 bg-slate-900 border border-slate-700 rounded-2xl">
+                        <p class="text-slate-400">Efficient (higher risk/reward) combat methods for regular Ironmen coming soon.</p>
+                        <p class="text-xs text-slate-500 mt-2">This will include aggressive Slayer training, boss rushing methods, and optimal XP routes.</p>
+                    </div>
+                </div>
+
+                <!-- Bronzeman Tab (Placeholder) -->
+                <div id="combat-content-2" class="hidden">
+                    <div class="text-center py-12 bg-slate-900 border border-slate-700 rounded-2xl">
+                        <p class="text-slate-400">Bronzeman / PK-focused combat training coming soon.</p>
+                        <p class="text-xs text-slate-500 mt-2">This tab will focus on methods that also help unlock good PvP gear through drops and PKing.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- AFK SKILLING SECTION -->
+        <div id="main-section-afk" class="mt-12 pt-8 border-t border-slate-700" style="display: none;">
+            <div class="mb-6">
+                <div class="flex items-center gap-x-3 mb-2">
+                    <i class="fa-solid fa-bed text-sky-400 text-2xl"></i>
+                    <h3 class="text-3xl font-semibold tracking-tight">Away From Keyboard (AFK) Skilling</h3>
+                </div>
+                <p class="text-slate-400 max-w-3xl">Low-effort training methods perfect for Ironmen who want to train while doing other things. Click a skill tab to see the best AFK options.</p>
+            </div>
+
+            <!-- Skill Tabs -->
+            <div class="flex flex-wrap border-b border-slate-700 mb-6 gap-x-1">
+                <button onclick="switchAfkTab(0)" id="afk-tab-0"
+                        class="afk-tab px-5 py-2.5 text-sm font-medium border-b-2 border-sky-400 text-sky-400">Mining</button>
+                <button onclick="switchAfkTab(1)" id="afk-tab-1"
+                        class="afk-tab px-5 py-2.5 text-sm font-medium text-slate-400 hover:text-white">Woodcutting</button>
+                <button onclick="switchAfkTab(2)" id="afk-tab-2"
+                        class="afk-tab px-5 py-2.5 text-sm font-medium text-slate-400 hover:text-white">Fishing</button>
+                <button onclick="switchAfkTab(3)" id="afk-tab-3"
+                        class="afk-tab px-5 py-2.5 text-sm font-medium text-slate-400 hover:text-white">Other</button>
+            </div>
+
+            <!-- AFK Content -->
+            <div id="afk-tab-content">
+
+                <!-- Mining Tab -->
+                <div id="afk-content-0">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <!-- Gemstone Crab -->
+                        <div class="bg-slate-900 border border-slate-700 rounded-2xl p-5">
+                            <div class="flex items-center justify-between mb-2">
+                                <div class="font-semibold">Gemstone Crab</div>
+                                <span class="text-xs px-2 py-0.5 bg-sky-900 text-sky-300 rounded">Very AFK</span>
+                            </div>
+                            <div class="text-sm text-slate-300 space-y-2">
+                                <p><strong>Location:</strong> Varlamore (Gemstone Crab area)</p>
+                                <p><strong>AFK Time:</strong> 5–10+ minutes per crab (very low attention needed)</p>
+                                <p><strong>Requirements:</strong> Access to Varlamore + decent Mining level</p>
+                                <p><strong>Why Great:</strong> One of the best current AFK Mining methods. Good XP and gems.</p>
+                            </div>
+                        </div>
+
+                        <!-- Mining Bone Shards -->
+                        <div class="bg-slate-900 border border-slate-700 rounded-2xl p-5">
+                            <div class="flex items-center justify-between mb-2">
+                                <div class="font-semibold">Mining Bone Shards</div>
+                                <span class="text-xs px-2 py-0.5 bg-sky-900 text-sky-300 rounded">Very AFK</span>
+                            </div>
+                            <div class="text-sm text-slate-300 space-y-2">
+                                <p><strong>Location:</strong> Varlamore (Bone Shard mining spots)</p>
+                                <p><strong>AFK Time:</strong> 3–8 minutes between banking / moving</p>
+                                <p><strong>Requirements:</strong> Access to Varlamore + Pickaxe</p>
+                                <p><strong>Why Great:</strong> Excellent for Ironmen. Bone shards are useful and the method is very low effort.</p>
+                            </div>
+                        </div>
+
+                        <!-- Shooting Stars -->
+                        <div class="bg-slate-900 border border-slate-700 rounded-2xl p-5">
+                            <div class="flex items-center justify-between mb-2">
+                                <div class="font-semibold">Shooting Stars</div>
+                                <span class="text-xs px-2 py-0.5 bg-sky-900 text-sky-300 rounded">Extremely AFK</span>
+                            </div>
+                            <div class="text-sm text-slate-300 space-y-2">
+                                <p><strong>Location:</strong> Various (use Star Miners plugin or Discord)</p>
+                                <p><strong>AFK Time:</strong> Up to 20–30+ minutes per star</p>
+                                <p><strong>Requirements:</strong> Mining level + access to a star</p>
+                                <p><strong>Why Great:</strong> One of the most AFK methods in the game. Great for long sessions.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Woodcutting Tab -->
+                <div id="afk-content-1" class="hidden">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-slate-900 border border-slate-700 rounded-2xl p-5">
+                            <div class="flex items-center justify-between mb-2">
+                                <div class="font-semibold">Redwood Trees</div>
+                                <span class="text-xs px-2 py-0.5 bg-sky-900 text-sky-300 rounded">Very AFK</span>
+                            </div>
+                            <div class="text-sm text-slate-300 space-y-2">
+                                <p><strong>Location:</strong> Woodcutting Guild (after 90 Woodcutting) or other Redwood spots</p>
+                                <p><strong>AFK Time:</strong> 4–8 minutes per tree</p>
+                                <p><strong>Requirements:</strong> 90 Woodcutting + Axe</p>
+                                <p><strong>Why Great:</strong> Extremely AFK and good XP. One of the best late-game AFK methods.</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-900 border border-slate-700 rounded-2xl p-5">
+                            <div class="flex items-center justify-between mb-2">
+                                <div class="font-semibold">Forestry (Events)</div>
+                                <span class="text-xs px-2 py-0.5 bg-sky-900 text-sky-300 rounded">Semi-AFK</span>
+                            </div>
+                            <div class="text-sm text-slate-300 space-y-2">
+                                <p><strong>Location:</strong> Various trees while doing Forestry events</p>
+                                <p><strong>AFK Time:</strong> 2–5 minutes between events</p>
+                                <p><strong>Requirements:</strong> Forestry outfit + participation in events</p>
+                                <p><strong>Why Great:</strong> Makes regular Woodcutting much more AFK and rewarding.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fishing Tab -->
+                <div id="afk-content-2" class="hidden">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-slate-900 border border-slate-700 rounded-2xl p-5">
+                            <div class="flex items-center justify-between mb-2">
+                                <div class="font-semibold">Karambwan Fishing</div>
+                                <span class="text-xs px-2 py-0.5 bg-sky-900 text-sky-300 rounded">Semi-AFK</span>
+                            </div>
+                            <div class="text-sm text-slate-300 space-y-2">
+                                <p><strong>Location:</strong> Karamja (after Tai Bwo Wannai Trio)</p>
+                                <p><strong>AFK Time:</strong> 2–4 minutes between banking</p>
+                                <p><strong>Requirements:</strong> Tai Bwo Wannai Trio quest + Karambwan vessel</p>
+                                <p><strong>Why Great:</strong> Very consistent and decent profit/XP for Ironmen.</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-900 border border-slate-700 rounded-2xl p-5">
+                            <div class="flex items-center justify-between mb-2">
+                                <div class="font-semibold">Anglerfish</div>
+                                <span class="text-xs px-2 py-0.5 bg-sky-900 text-sky-300 rounded">Semi-AFK</span>
+                            </div>
+                            <div class="text-sm text-slate-300 space-y-2">
+                                <p><strong>Location:</strong> Piscatoris Fishing Colony</p>
+                                <p><strong>AFK Time:</strong> 3–6 minutes between banking</p>
+                                <p><strong>Requirements:</strong> 82 Fishing + access to the colony</p>
+                                <p><strong>Why Great:</strong> Good food source + solid AFK training for Ironmen.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Other Tab -->
+                <div id="afk-content-3" class="hidden">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-slate-900 border border-slate-700 rounded-2xl p-5">
+                            <div class="flex items-center justify-between mb-2">
+                                <div class="font-semibold">Wintertodt</div>
+                                <span class="text-xs px-2 py-0.5 bg-sky-900 text-sky-300 rounded">Semi-AFK</span>
+                            </div>
+                            <div class="text-sm text-slate-300 space-y-2">
+                                <p><strong>Location:</strong> Wintertodt Camp</p>
+                                <p><strong>AFK Time:</strong> 3–6 minutes per game (with good setup)</p>
+                                <p><strong>Requirements:</strong> 50 Firemaking + warm clothing</p>
+                                <p><strong>Why Great:</strong> Excellent early AFK method. Great supplies + FM XP.</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-900 border border-slate-700 rounded-2xl p-5">
+                            <div class="flex items-center justify-between mb-2">
+                                <div class="font-semibold">Guardians of the Rift (Semi-AFK)</div>
+                                <span class="text-xs px-2 py-0.5 bg-sky-900 text-sky-300 rounded">Semi-AFK</span>
+                            </div>
+                            <div class="text-sm text-slate-300 space-y-2">
+                                <p><strong>Location:</strong> Guardians of the Rift minigame</p>
+                                <p><strong>AFK Time:</strong> 2–5 minutes between runs with good strategy</p>
+                                <p><strong>Requirements:</strong> Some Runecrafting + access to the minigame</p>
+                                <p><strong>Why Great:</strong> One of the best ways to train Runecrafting with relatively low effort.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- QUEST GUIDES PLACEHOLDER -->
+    <div id="main-section-quests" class="max-w-screen-2xl mx-auto px-8 py-16" style="display: none;">
+        <div class="text-center">
+            <h2 class="text-3xl font-semibold mb-4 osrs-header">Quest Guides</h2>
+            <p class="text-slate-400 max-w-md mx-auto">Detailed quest guides and optimal orders coming soon. The Efficient Quest Order is currently available in the Roadmap tab.</p>
+        </div>
+    </div>
+
+    <!-- MONEY MAKING PLACEHOLDER -->
+    <div id="main-section-money" class="max-w-screen-2xl mx-auto px-8 py-16" style="display: none;">
+        <div class="text-center">
+            <h2 class="text-3xl font-semibold mb-4 osrs-header">Money Making Hub</h2>
+            <p class="text-slate-400 max-w-md mx-auto">Ranked Ironman money makers with GP/hr will be added here soon.</p>
+        </div>
+    </div>
+
+    <!-- RESOURCES SECTION -->
+    <div id="resources" class="max-w-screen-2xl mx-auto px-8 py-12 border-t border-slate-800 bg-slate-900/30">
+        <div class="flex items-end justify-between mb-6">
+            <div>
+                <h2 class="section-header tracking-tighter">Curated Resources Library</h2>
+                <p class="text-slate-400">The best videos, written guides, databases, and tools — all in one place. Filter by mode and phase.</p>
+            </div>
+            <div class="text-xs text-slate-500 hidden md:block">Click cards to open • Curated &amp; verified</div>
+        </div>
+
+        <!-- Resource Filters -->
+        <div class="flex flex-wrap gap-x-2 gap-y-2 mb-6 items-center">
+            <div class="flex items-center bg-slate-900 border border-slate-800 rounded-3xl p-1 text-xs">
+                <button onclick="filterResources('all')" class="resource-filter-btn active px-4 py-1.5 rounded-3xl" id="res-filter-all">All</button>
+                <button onclick="filterResources('video')" class="resource-filter-btn px-4 py-1.5 rounded-3xl" id="res-filter-video"><i class="fa-brands fa-youtube mr-1.5"></i> Videos</button>
+                <button onclick="filterResources('guide')" class="resource-filter-btn px-4 py-1.5 rounded-3xl" id="res-filter-guide"><i class="fa-solid fa-book mr-1.5"></i> Guides</button>
+                <button onclick="filterResources('tool')" class="resource-filter-btn px-4 py-1.5 rounded-3xl" id="res-filter-tool"><i class="fa-solid fa-tools mr-1.5"></i> Tools</button>
+            </div>
+            
+            <div class="flex-1"></div>
+            
+            <input type="text" id="resource-search" placeholder="Search resources..." onkeyup="filterResources()"
+                   class="bg-slate-900 border border-slate-700 w-64 text-sm px-4 py-2.5 rounded-3xl placeholder:text-slate-500">
+        </div>
+
+        <div id="resources-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+            <!-- Populated dynamically -->
+        </div>
+        
+        <div class="mt-8 text-center text-xs text-slate-500">
+            Want to add a resource? <button onclick="showContributeModal()" class="underline hover:text-amber-400">Submit it here</button> — we'll review &amp; add it.
+        </div>
+    </div>
+
+    <!-- BRONZEMAN SPECIAL: Unlock Tracker Teaser -->
+    <div class="max-w-screen-2xl mx-auto px-8 pb-16">
+        <div class="bg-gradient-to-br from-slate-900 to-slate-950 border border-amber-900/30 rounded-3xl p-8 md:p-10">
+            <div class="flex flex-col md:flex-row gap-8 items-center">
+                <div class="flex-1">
+                    <div class="uppercase text-amber-400 text-xs tracking-[2px] mb-2">BRONZEMAN EXCLUSIVE</div>
+                    <h3 class="text-4xl font-display tracking-tighter">Item Unlock Tracker</h3>
+                    <p class="mt-3 text-slate-400 max-w-md">Track which high-value PvP and bossing items you've unlocked. See what you can now buy on the GE and plan your next PK or farm target.</p>
+                    
+                    <div class="mt-5 flex gap-x-3">
+                        <button onclick="showUnlockModal()" 
+                                class="px-6 py-3 bg-amber-500 hover:bg-amber-400 active:bg-amber-600 transition-colors text-slate-950 font-semibold rounded-3xl text-sm flex items-center gap-x-2">
+                            <i class="fa-solid fa-unlock"></i>
+                            <span>Open Unlock Tracker</span>
+                        </button>
+                        <button onclick="alert('Full interactive unlock tracker with 80+ key items coming in v1.1! Currently shows example set.')" 
+                                class="px-5 py-3 border border-amber-800 text-amber-300 hover:bg-slate-900 rounded-3xl text-sm">
+                            Learn how unlocks work
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="flex-1 max-w-sm w-full">
+                    <div class="text-xs uppercase tracking-widest mb-2 text-amber-300/70">EXAMPLE KEY UNLOCKS</div>
+                    <div class="grid grid-cols-2 gap-2 text-sm">
+                        <div class="bg-slate-900 border border-amber-900/30 px-4 py-3 rounded-2xl flex justify-between items-center"><span>Abyssal whip</span> <span class="text-emerald-400 text-xs">UNLOCKED</span></div>
+                        <div class="bg-slate-900 border border-amber-900/30 px-4 py-3 rounded-2xl flex justify-between items-center"><span>Dragon claws</span> <span class="text-amber-400 text-xs">3.2k KC</span></div>
+                        <div class="bg-slate-900 border border-amber-900/30 px-4 py-3 rounded-2xl flex justify-between items-center"><span>Armadyl godsword</span> <span class="text-emerald-400 text-xs">UNLOCKED</span></div>
+                        <div class="bg-slate-900 border border-amber-900/30 px-4 py-3 rounded-2xl flex justify-between items-center opacity-60"><span>Toxic blowpipe</span> <span class="text-xs">—</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 bg-slate-950">
+        <div class="max-w-screen-2xl mx-auto px-8 py-12 text-sm">
+            <div class="flex flex-col md:flex-row justify-between gap-y-8">
+                <div>
+                    <div class="flex items-center gap-x-2 mb-3">
+                        <div class="w-6 h-6 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center">
+                            <i class="fa-solid fa-hammer text-white text-sm"></i>
+                        </div>
+                        <span class="font-semibold">The Iron Man Guide</span>
+                    </div>
+                    <div class="text-slate-500 max-w-xs">A community project to organize the scattered knowledge of restricted account progression into one clean, chronological experience.</div>
+                    
+                    <div class="mt-4 text-[10px] text-slate-600">Not affiliated with Jagex or RuneScape. All data compiled from public community sources.</div>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-x-10 gap-y-6 text-xs">
+                    <div>
+                        <div class="font-semibold mb-2 text-slate-400">Core Sources</div>
+                        <div class="space-y-1 text-slate-500">
+                            <div>OSRS Wiki Ironman Guide</div>
+                            <div>ironman.guide</div>
+                            <div>Ladlor Progression Chart</div>
+                            <div>r/ironscape</div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="font-semibold mb-2 text-slate-400">Bronzeman</div>
+                        <div class="space-y-1 text-slate-500">
+                            <div>Gudi / MLGudi series</div>
+                            <div>RuneLite Bronzeman Plugin</div>
+                            <div>Creator showdown series</div>
+                            <div>1500hr Bronzeman journeys</div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="font-semibold mb-2 text-slate-400">Project</div>
+                        <div class="space-y-1">
+                            <button onclick="showContributeModal()" class="block text-left hover:text-amber-400 transition-colors">Submit a guide or step</button>
+                            <a href="#" class="block hover:text-amber-400 transition-colors">GitHub (coming soon)</a>
+                            <a href="#" class="block hover:text-amber-400 transition-colors">Roadmap &amp; Changelog</a>
+                            <button onclick="showAboutModal()" class="block text-left hover:text-amber-400 transition-colors">About this project</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Step Detail Modal -->
+    <div id="step-modal" onclick="if (event.target.id === 'step-modal') hideStepModal()" class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] flex items-center justify-center p-4">
+        <div onclick="event.stopImmediatePropagation()" class="bg-slate-900 border border-slate-700 rounded-3xl max-w-3xl w-full max-h-[92vh] overflow-auto modal">
+            <div class="px-8 pt-8 pb-6 sticky top-0 bg-slate-900 border-b border-slate-700 z-10 flex items-start justify-between">
+                <div id="modal-step-header" class="flex-1 pr-6"></div>
+                <button onclick="hideStepModal()" class="text-3xl leading-none text-slate-400 hover:text-white">&times;</button>
+            </div>
+            
+            <div class="p-8 space-y-8" id="modal-step-body">
+                <!-- Populated by JS -->
+            </div>
+            
+            <div class="border-t border-slate-700 px-8 py-5 bg-slate-950/70 flex items-center justify-between text-xs sticky bottom-0">
+                <div class="flex items-center gap-x-4 text-slate-400">
+                    <button onclick="markStepCompleteFromModal()" id="modal-complete-btn"
+                            class="flex items-center gap-x-2 px-5 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-3xl text-xs font-semibold transition-colors">
+                        <i class="fa-solid fa-check"></i>
+                        <span>MARK COMPLETE</span>
+                    </button>
+                    <button onclick="hideStepModal()" class="px-5 py-2 border border-slate-600 hover:bg-slate-800 rounded-3xl">Close</button>
+                </div>
+                <div id="modal-step-id" class="font-mono text-[10px] text-slate-600"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contribute Modal -->
+    <div id="contribute-modal" onclick="if (event.target.id === 'contribute-modal') hideContributeModal()" class="hidden fixed inset-0 bg-black/70 z-[110] flex items-center justify-center p-5">
+        <div onclick="event.stopImmediatePropagation()" class="bg-slate-900 border border-slate-700 rounded-3xl max-w-lg w-full p-8 modal">
+            <h3 class="font-semibold text-2xl tracking-tight">Help build the ultimate resource</h3>
+            <p class="text-slate-400 mt-2 text-sm">This is a living project. Submit new steps, resources, corrections, or Bronzeman-specific tips.</p>
+            
+            <div class="mt-6 space-y-4">
+                <div>
+                    <label class="text-xs text-slate-400 block mb-1">Type of contribution</label>
+                    <select id="contrib-type" class="w-full bg-slate-950 border border-slate-700 rounded-2xl px-4 py-3 text-sm">
+                        <option>New step / milestone</option>
+                        <option>Resource link (video/guide/tool)</option>
+                        <option>Bronzeman-specific advice or correction</option>
+                        <option>Bug / improvement suggestion</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="text-xs text-slate-400 block mb-1">Details / Link / Description</label>
+                    <textarea id="contrib-details" rows="4" placeholder="Describe the step or paste the YouTube/wiki link..." 
+                              class="w-full bg-slate-950 border border-slate-700 rounded-3xl px-4 py-3 text-sm resize-y"></textarea>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="text-xs text-slate-400 block mb-1">Your RuneScape name (optional)</label>
+                        <input type="text" id="contrib-rsn" placeholder="e.g. IronZak" class="w-full bg-slate-950 border border-slate-700 rounded-2xl px-4 py-3 text-sm">
+                    </div>
+                    <div>
+                        <label class="text-xs text-slate-400 block mb-1">Mode focus</label>
+                        <select id="contrib-mode" class="w-full bg-slate-950 border border-slate-700 rounded-2xl px-4 py-3 text-sm">
+                            <option value="both">Both / General</option>
+                            <option value="ironman">Ironman</option>
+                            <option value="bronzeman">Bronzeman</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-6 flex gap-x-3">
+                <button onclick="submitContribution()" 
+                        class="flex-1 py-3.5 bg-white hover:bg-amber-50 active:bg-white text-slate-900 font-semibold rounded-3xl transition-all">Submit for Review</button>
+                <button onclick="hideContributeModal()" class="px-8 border border-slate-700 hover:bg-slate-800 rounded-3xl">Cancel</button>
+            </div>
+            <div class="text-center text-[10px] text-slate-500 mt-4">Submissions are reviewed manually. Thank you for helping the community!</div>
+        </div>
+    </div>
+
+    <script>
+        // Tailwind script
+        function initializeTailwind() {
+            document.documentElement.style.setProperty('--accent', '#f59e0b');
+        }
+
+        // Sample Data: Chronological Steps (curated & synthesized from wiki + ironman.guide + community)
+        let steps = [
+            // ==================== EARLY GAME (Expanded) ====================
+            {
+                id: 1,
+                phase: "Early Game",
+                title: "Activate Ironman Mode & Complete Tutorial Island",
+                short: "Speak to the Ironman tutor and begin your restricted journey properly.",
+                details: "Talk to the Ironman tutor on Tutorial Island to enable restrictions. This locks GE and trading permanently for official Ironman. For Bronzeman, install the RuneLite plugin immediately.",
+                requirements: "None",
+                methods: ["Talk to Ironman tutor", "Complete Tutorial Island with optimal pathing"],
+                iron_notes: "Official mode activated. Your hiscores will show as Ironman.",
+                bronze_notes: "Install RuneLite Bronzeman plugin right away. Every item starts locked — first obtain = permanent GE unlock.",
+                wiki: "https://oldschool.runescape.wiki/w/Ironman_mode",
+                video: "https://www.youtube.com/results?search_query=osrs+ironman+tutorial+island",
+                difficulty: "Trivial",
+                est_time: "30-60 min",
+                tags: ["tutorial", "setup"]
+            },
+            {
+                id: 2,
+                phase: "Early Game",
+                title: "Complete Essential Early Quests",
+                short: "Knock out high-value early quests for XP, teleports, and unlocks.",
+                details: "Prioritize quests that give strong rewards: Cook's Assistant, Rune Mysteries, Lost City, Waterfall Quest, The Feud, and Gertrude's Cat. These give massive early XP and useful items without GE.",
+                requirements: "Low combat/stats recommended for some",
+                methods: ["Use Quest Helper plugin", "Follow optimal quest order filtered for Ironman"],
+                iron_notes: "These quests are extremely efficient for early levels and unlocks.",
+                bronze_notes: "Several quest rewards (Dragon dagger, etc.) become your first permanent unlocks.",
+                wiki: "https://oldschool.runescape.wiki/w/Optimal_quest_guide",
+                video: "",
+                difficulty: "Easy",
+                est_time: "4-8 hours",
+                tags: ["questing", "unlocks"]
+            },
+            {
+                id: 3,
+                phase: "Early Game",
+                title: "Wintertodt — Firemaking & Early Supplies",
+                short: "Train Firemaking to 50+ while getting crates full of seeds, herbs, and supplies.",
+                details: "One of the best early activities. Provides FM XP, construction supplies, herbs, seeds, and early GP through alching or selling (Bronzeman after unlock).",
+                requirements: "50 Firemaking (boostable), warm clothing, food",
+                methods: ["Solo or duo Wintertodt", "Bring axe, food, and warm gear"],
+                iron_notes: "Crates are excellent for early Herblore and Farming. Great passive income via alching.",
+                bronze_notes: "Many crate items become permanently unlocked. Strong early self-sufficiency activity.",
+                wiki: "https://oldschool.runescape.wiki/w/Wintertodt",
+                video: "https://www.youtube.com/results?search_query=osrs+ironman+wintertodt+guide",
+                difficulty: "Easy-Medium",
+                est_time: "5-15 hours to 50+ FM",
+                tags: ["skilling", "supplies", "early-gp"]
+            },
+            {
+                id: 4,
+                phase: "Early Game",
+                title: "Blackjacking for Thieving & Early GP",
+                short: "Train Thieving to 50+ via blackjacking in Pollnivneach.",
+                details: "Blackjacking is one of the best early money makers for restricted accounts and gives solid Thieving XP.",
+                requirements: "Thieving 45+ (boostable)",
+                methods: ["Blackjack bandits in Pollnivneach", "Use food and stamina potions"],
+                iron_notes: "Primary early GP source. Use for runes, supplies, and alchables.",
+                bronze_notes: "GP helps you buy basic supplies once you unlock common items on GE.",
+                wiki: "https://oldschool.runescape.wiki/w/Thieving#Blackjacking",
+                video: "",
+                difficulty: "Medium",
+                est_time: "Several hours to 50+",
+                tags: ["thieving", "money-making"]
+            },
+            {
+                id: 5,
+                phase: "Early Game",
+                title: "Get Graceful Outfit",
+                short: "Train Agility and obtain the full Graceful set for massive run energy savings.",
+                details: "Graceful is a huge quality of life upgrade. Focus on Canifis or other efficient courses while doing quests that give Agility XP.",
+                requirements: "Agility training + some quests",
+                methods: ["Canifis rooftop course", "Quest rewards and lamps for Agility"],
+                iron_notes: "Extremely high priority for all restricted accounts. Saves huge amounts of time.",
+                bronze_notes: "Same priority. Better run energy helps with PK escapes and traveling to farm spots.",
+                wiki: "https://oldschool.runescape.wiki/w/Graceful_outfit",
+                video: "",
+                difficulty: "Medium",
+                est_time: "8-15 hours",
+                tags: ["agility", "qol", "gear"]
+            },
+            {
+                id: 6,
+                phase: "Early Game",
+                title: "Unlock Fairy Rings & Spirit Trees",
+                short: "Complete Fairytale I & II (partial) and Tree Gnome Village for powerful teleports.",
+                details: "Fairy rings are one of the most important early unlocks for fast travel. Spirit trees complement them well.",
+                requirements: "Start Fairytale Part I, some combat for Part II",
+                methods: ["Fairytale I & II questline", "Tree Gnome Village quest"],
+                iron_notes: "Massive QoL. Prioritize this heavily for efficient training routes.",
+                bronze_notes: "Same. Fast travel helps reach PK hotspots and farming locations quicker.",
+                wiki: "https://oldschool.runescape.wiki/w/Fairytale_II_-_Cure_a_Queen",
+                video: "",
+                difficulty: "Medium",
+                est_time: "3-6 hours",
+                tags: ["teleports", "questing", "qol"]
+            },
+            {
+                id: 7,
+                phase: "Early Game",
+                title: "Obtain 43 Prayer",
+                short: "Train Prayer to 43 for Protect prayers — essential for safe training and bossing.",
+                details: "Critical milestone. Protect prayers allow much safer combat training and early boss attempts.",
+                requirements: "Access to Ectofuntus, Chaos Altar, or quest rewards",
+                methods: ["Ectofuntus (safest for Iron)", "Chaos Altar (faster but risky)", "Quest lamps"],
+                iron_notes: "Use Ectofuntus or lamps. Protect prayers enable safe Slayer and early bosses.",
+                bronze_notes: "Prayer is foundational for surviving PK fights and wildy content.",
+                wiki: "https://oldschool.runescape.wiki/w/Prayer#Training",
+                video: "",
+                difficulty: "Medium",
+                est_time: "5-15 hours",
+                tags: ["prayer", "combat", "milestone"]
+            },
+            {
+                id: 8,
+                phase: "Early Game",
+                title: "Start Slayer & Get Black Mask",
+                short: "Begin Slayer training and obtain a Black mask (i) for huge combat bonuses.",
+                details: "Slayer is one of the best long-term activities for Ironmen. Getting a Black mask early is a big power spike.",
+                requirements: "Combat stats + access to Slayer masters",
+                methods: ["Efficient task selection", "Use Konar for brimstone keys later"],
+                iron_notes: "Start building good habits. Black mask (i) is a major early upgrade.",
+                bronze_notes: "Black mask becomes a permanent unlock. Great for early PK builds too.",
+                wiki: "https://oldschool.runescape.wiki/w/Slayer",
+                video: "",
+                difficulty: "Medium",
+                est_time: "Ongoing",
+                tags: ["slayer", "combat"]
+            },
+            {
+                id: 9,
+                phase: "Early Game",
+                title: "Recipe for Disaster — Barrows Gloves",
+                short: "Complete the full RFD questline for the best early-game gloves in the game.",
+                details: "Barrows gloves are one of the biggest early power spikes. The questline also unlocks many useful sub-rewards.",
+                requirements: "High quest point requirement + various skill/quest prereqs",
+                methods: ["Follow optimal quest order", "Use Quest Helper plugin heavily"],
+                iron_notes: "One of the biggest early milestones. Many subquests give excellent rewards.",
+                bronze_notes: "Unlocks many useful items along the way. Huge for combat-focused builds.",
+                wiki: "https://oldschool.runescape.wiki/w/Recipe_for_Disaster",
+                video: "https://www.youtube.com/watch?v=48rLpF71fTc",
+                difficulty: "Hard",
+                est_time: "20-40+ hours total",
+                tags: ["questing", "milestone", "gear"]
+            },
+            {
+                id: 10,
+                phase: "Early Game",
+                title: "Obtain Fire Cape",
+                short: "Complete the Fight Caves for the Fire Cape — best-in-slot early cape.",
+                details: "Fire Cape is a major early upgrade and a big confidence milestone for new Ironmen.",
+                requirements: "Decent combat stats + some prayer flicking practice",
+                methods: ["Learn Jad mechanics", "Use safe methods with good supplies"],
+                iron_notes: "Extremely high priority. One of the best early capes available.",
+                bronze_notes: "Fire Cape is a strong early unlock for PK builds.",
+                wiki: "https://oldschool.runescape.wiki/w/Fight_Caves",
+                video: "",
+                difficulty: "Medium-Hard",
+                est_time: "5-15 hours (including attempts)",
+                tags: ["combat", "milestone", "gear"]
+            },
+            {
+                id: 11,
+                phase: "Early Game",
+                title: "Get Fighter Torso",
+                short: "Complete Barbarian Assault for the Fighter Torso — excellent early body armour.",
+                details: "Fighter Torso is one of the best early melee bodies and is very achievable for Ironmen.",
+                requirements: "Some combat stats + willingness to learn BA roles",
+                methods: ["Learn all roles", "Find a team or use BA worlds"],
+                iron_notes: "Very strong early upgrade. Worth learning Barbarian Assault for.",
+                bronze_notes: "Torso becomes a permanent unlock and is great for early PK sets.",
+                wiki: "https://oldschool.runescape.wiki/w/Fighter_torso",
+                video: "",
+                difficulty: "Medium",
+                est_time: "5-10 hours",
+                tags: ["combat", "gear", "minigame"]
+            },
+            {
+                id: 12,
+                phase: "Early Game",
+                title: "Dragon Defender & Warriors' Guild",
+                short: "Obtain the Dragon Defender from the Warriors' Guild.",
+                details: "Dragon Defender is a major upgrade for melee and relatively easy to get once you have the requirements.",
+                requirements: "Attack & Strength 99 combined (or 130 total) + some tokens",
+                methods: ["Efficient token farming", "Learn the cyclops mechanics"],
+                iron_notes: "Excellent early off-hand upgrade. Very worth the time investment.",
+                bronze_notes: "Defender becomes a permanent unlock and is strong for PK builds.",
+                wiki: "https://oldschool.runescape.wiki/w/Dragon_defender",
+                video: "",
+                difficulty: "Medium",
+                est_time: "3-8 hours",
+                tags: ["combat", "gear"]
+            },
+            {
+                id: 13,
+                phase: "Early Game",
+                title: "Early Farming & Herb Runs Setup",
+                short: "Start Farming for consistent herb income and supplies.",
+                details: "Set up basic Farming with low-level patches and start doing herb runs. This becomes extremely valuable later.",
+                requirements: "Some Farming levels + access to patches",
+                methods: ["Start with low-level herbs", "Use ultracompost when possible"],
+                iron_notes: "Herb runs are one of the best passive income methods for Ironmen.",
+                bronze_notes: "Herbs and seeds you obtain become permanently unlocked.",
+                wiki: "https://oldschool.runescape.wiki/w/Farming",
+                video: "",
+                difficulty: "Easy-Medium",
+                est_time: "Ongoing (short daily runs)",
+                tags: ["farming", "supplies", "passive"]
+            },
+            {
+                id: 14,
+                phase: "Early Game",
+                title: "Guardians of the Rift & Early Runecrafting",
+                short: "Train Runecrafting efficiently and get early runes/supplies.",
+                details: "Guardians of the Rift is excellent for early Runecrafting XP and gives good rewards including runes and essence.",
+                requirements: "Some Runecrafting levels + access to the minigame",
+                methods: ["Learn efficient rift closing", "Focus on elemental runes first"],
+                iron_notes: "Great way to get runes without relying on shops or other players.",
+                bronze_notes: "Runes and essence obtained become permanently unlocked.",
+                wiki: "https://oldschool.runescape.wiki/w/Guardians_of_the_Rift",
+                video: "",
+                difficulty: "Medium",
+                est_time: "Ongoing",
+                tags: ["runecrafting", "supplies"]
+            },
+            {
+                id: 15,
+                phase: "Early Game",
+                title: "Early Construction Training",
+                short: "Get Construction levels for useful teleports and storage.",
+                details: "Focus on efficient methods like Mahogany Homes or basic plank making for early Construction levels.",
+                requirements: "Some gold for planks + Construction levels",
+                methods: ["Mahogany Homes contract method", "Basic plank making at sawmill"],
+                iron_notes: "Construction unlocks are very useful (teleports, storage, etc.).",
+                bronze_notes: "Construction supplies and items you make become unlocked.",
+                wiki: "https://oldschool.runescape.wiki/w/Construction",
+                video: "",
+                difficulty: "Medium",
+                est_time: "Varies",
+                tags: ["construction", "qol"]
+            },
+            {
+                id: 16,
+                phase: "Early Game",
+                title: "Early Combat Training & Safe Methods",
+                short: "Build combat stats safely using efficient and low-risk methods.",
+                details: "Focus on safe training spots and methods while building stats toward mid-game content.",
+                requirements: "Basic combat gear from previous steps",
+                methods: ["Sand crabs / Ammonite crabs", "Safe Slayer tasks", "Quest combat XP"],
+                iron_notes: "Build stats steadily while maintaining supplies. Avoid unnecessary risk.",
+                bronze_notes: "Focus on methods that also give useful drops for unlocks.",
+                wiki: "https://oldschool.runescape.wiki/w/Combat_training",
+                video: "",
+                difficulty: "Easy-Medium",
+                est_time: "Ongoing",
+                tags: ["combat", "training"]
+            },
+            {
+                id: 8,
+                phase: "Mid Game",
+                title: "Song of the Elves & Prifddinas Access",
+                short: "Complete SOTE for access to Prifddinas, crystal equipment, and high-level content.",
+                details: "Major mid-game goal. Unlocks The Gauntlet, Zalcano, high-level skilling, and crystal gear path.",
+                requirements: "Many stats and quests (see wiki for full list)",
+                methods: ["Efficient quest preparation", "Train required skills in parallel"],
+                iron_notes: "Huge content unlock. Crystal tools and armor are excellent for Ironmen.",
+                bronze_notes: "Crystal items become permanent unlocks. The Gauntlet is fantastic for learning PvM and getting first high-value drops.",
+                wiki: "https://oldschool.runescape.wiki/w/Song_of_the_Elves",
+                video: "",
+                difficulty: "Hard",
+                est_time: "30-60+ hours prep + quest",
+                tags: ["questing", "mid-game", "major-unlock"]
+            },
+            {
+                id: 9,
+                phase: "Mid Game",
+                title: "Gear Progression: Barrows, Moons & Early Bossing",
+                short: "Obtain Barrows equipment, Moons of Peril gear, and start mid-tier bossing.",
+                details: "Focus on obtaining tank gear (Barrows), hybrid sets from Perilous Moons, and weapons like Trident of the Seas, Abyssal whip (via slayer).",
+                requirements: "43+ Prayer, decent combat stats, some quests",
+                methods: ["Barrows runs", "Perilous Moons", "Slayer for whip/trident", "Royal Titans for new gear"],
+                iron_notes: "Barrows is staple. Moons gear is very strong for mid-game Ironmen.",
+                bronze_notes: "Every Barrows piece and Moon item you obtain for the first time becomes GE-unlockable. Great for building your PK set gradually.",
+                wiki: "https://oldschool.runescape.wiki/w/Guide:Yazi%27s_Ironman_Gear_Progression_2025",
+                video: "https://www.youtube.com/watch?v=Y_AjFOmrktY",
+                difficulty: "Medium-Hard",
+                est_time: "Ongoing (dozens of hours)",
+                tags: ["gear", "bossing", "slayer"]
+            },
+            {
+                id: 10,
+                phase: "Mid Game",
+                title: "Slayer Training & Efficient Supplies",
+                short: "Train Slayer for combat XP, gold, and key unlocks (whip, trident, etc.).",
+                details: "Slayer is core to Ironman progression for both combat and unique drops. Maintain supplies via efficient methods.",
+                requirements: "Slayer helm (black mask i), decent gear",
+                methods: ["Efficient task skipping", "Use Konar for brimstone keys", "Block list optimization"],
+                iron_notes: "Primary source of many best-in-slot items and alchables.",
+                bronze_notes: "Key drops like whip, trident, and boss uniques are permanent unlocks when first obtained. Prioritize tasks that give good first-time drops.",
+                wiki: "https://oldschool.runescape.wiki/w/Ironman_Guide/Slayer",
+                video: "",
+                difficulty: "Medium",
+                est_time: "Hundreds of hours (ongoing)",
+                tags: ["slayer", "combat", "supplies"]
+            },
+            {
+                id: 11,
+                phase: "Late Game",
+                title: "Corrupted Gauntlet & Crystal Equipment",
+                short: "Master the Gauntlet for crystal armor, weapons, and the Bow of Faerdhinen.",
+                details: "One of the best solo content pieces for restricted accounts. Provides excellent gear and GP (via alchs or GE for Bronze).",
+                requirements: "SOTE completed, high combat stats, practice",
+                methods: ["Learn T2/T3 armor prep", "Consistent runs", "Hunllef practice"],
+                iron_notes: "Crystal armor + Bowfa is a massive power spike for many activities.",
+                bronze_notes: "All crystal items and the Bowfa are high-value unlocks. Many Bronzemen rush this for PK power.",
+                wiki: "https://oldschool.runescape.wiki/w/The_Gauntlet",
+                video: "",
+                difficulty: "Hard",
+                est_time: "20-50+ hours to consistent KC",
+                tags: ["pvm", "gear", "late-game"]
+            },
+            {
+                id: 12,
+                phase: "Late Game",
+                title: "Raids & High-End Bossing (ToA, CoX, ToB)",
+                short: "Progress into raids and endgame bosses for the best gear and supplies.",
+                details: "Tombs of Amascut, Chambers of Xeric, Theatre of Blood. Requires good gear, mechanics knowledge, and often teams (or solo attempts).",
+                requirements: "Strong gear from previous phases, high stats",
+                methods: ["Learn invocations gradually", "Find learner teams or use Discord", "Warden/Verzik practice"],
+                iron_notes: "Best source of endgame supplies and uniques. Manage resources carefully.",
+                bronze_notes: "Every unique drop (shadow, tbow, scythe, etc.) is a massive permanent unlock. Many Bronzemen use raids to fund PK builds.",
+                wiki: "https://oldschool.runescape.wiki/w/Raids",
+                video: "",
+                difficulty: "Very Hard",
+                est_time: "Ongoing endgame",
+                tags: ["raids", "endgame", "pvm"]
+            }
+        ]
+
+        // Sample Resources Data
+        let resources = [
+            {
+                id: 1,
+                title: "ironman.guide — Interactive Efficiency Walkthrough",
+                type: "tool",
+                url: "https://ironman.guide/",
+                description: "The gold standard interactive guide with 500+ steps, progress tracking, quest order, gear progression, and tools for all Ironman modes.",
+                phases: ["Early Game", "Mid Game", "Late Game"],
+                modes: ["ironman"],
+                tags: ["interactive", "progress", "quests"]
+            },
+            {
+                id: 2,
+                title: "OSRS Wiki — Ironman Guide",
+                type: "guide",
+                url: "https://oldschool.runescape.wiki/w/Ironman_guide",
+                description: "Comprehensive official-style guide covering early/mid/late game phases with specific methods and item sources for Ironmen.",
+                phases: ["Early Game", "Mid Game", "Late Game"],
+                modes: ["ironman"],
+                tags: ["wiki", "comprehensive"]
+            },
+            {
+                id: 3,
+                title: "Ladlor's Interactive Ironman Progression Chart",
+                type: "tool",
+                url: "https://ladlorchart.com/",
+                description: "Beautiful interactive chart showing recommended gear and milestones. Great visual companion.",
+                phases: ["Early Game", "Mid Game"],
+                modes: ["ironman"],
+                tags: ["chart", "gear"]
+            },
+            {
+                id: 4,
+                title: "Yazi's Ironman Gear Progression 2025 (Wiki Guide)",
+                type: "guide",
+                url: "https://oldschool.runescape.wiki/w/Guide:Yazi%27s_Ironman_Gear_Progression_2025",
+                description: "Detailed gear progression broken into Early / Mid / Late / End Game for all combat styles.",
+                phases: ["Early Game", "Mid Game", "Late Game"],
+                modes: ["ironman"],
+                tags: ["gear", "progression"]
+            },
+            {
+                id: 5,
+                title: "Bronzeman Mode: The 1500 Hour Journey (Full Series)",
+                type: "video",
+                url: "https://www.youtube.com/watch?v=650Aymv9g8Q",
+                description: "Complete 1500-hour Bronzeman series. Excellent real example of progression from scratch to strong PK account.",
+                phases: ["Early Game", "Mid Game", "Late Game"],
+                modes: ["bronzeman"],
+                tags: ["series", "pvp", "long-form"]
+            },
+            {
+                id: 6,
+                title: "RuneLite Bronzeman Mode Plugin (GitHub)",
+                type: "tool",
+                url: "https://github.com/sethrem/bronzeman",
+                description: "The essential plugin that enforces Bronzeman rules and shows unlock notifications. Setup guide included.",
+                phases: ["Early Game"],
+                modes: ["bronzeman"],
+                tags: ["plugin", "runelite", "enforcement"]
+            },
+            {
+                id: 7,
+                title: "OSRS Ironman Gear Progression Guide 2025 (YouTube)",
+                type: "video",
+                url: "https://www.youtube.com/watch?v=Y_AjFOmrktY",
+                description: "Clear breakdown of gear progression with early/mid/late sections. Very practical.",
+                phases: ["Early Game", "Mid Game", "Late Game"],
+                modes: ["ironman"],
+                tags: ["gear", "video-guide"]
+            },
+            {
+                id: 8,
+                title: "The Woozle — Ironman Supply Guides Playlist",
+                type: "video",
+                url: "https://www.youtube.com/playlist?list=PLWykRajEOuL-J5NZylZt0BCp53fPGZ5oT",
+                description: "Excellent short guides on maintaining supplies (food, potions, runes, etc.) as an Ironman.",
+                phases: ["Early Game", "Mid Game"],
+                modes: ["ironman"],
+                tags: ["supplies", "maintenance"]
+            },
+            {
+                id: 9,
+                title: "r/ironscape — Community Hub",
+                type: "guide",
+                url: "https://www.reddit.com/r/ironscape/",
+                description: "Active subreddit for Ironman discussion, progress posts, and advice. Search for specific bosses or methods.",
+                phases: ["All"],
+                modes: ["ironman"],
+                tags: ["community", "discussion"]
+            },
+            {
+                id: 10,
+                title: "Bronzeman Mode Creator Showdown & Plugin Deep Dive",
+                type: "video",
+                url: "https://www.youtube.com/watch?v=Hc8ozXKKxaY",
+                description: "Explains the modern state of Bronzeman mode and recent plugin improvements.",
+                phases: ["Early Game", "Mid Game"],
+                modes: ["bronzeman"],
+                tags: ["explanation", "plugin"]
+            },
+            {
+                id: 11,
+                title: "Optimal Quest Guide (OSRS Wiki)",
+                type: "guide",
+                url: "https://oldschool.runescape.wiki/w/Optimal_quest_guide",
+                description: "Best quest order to minimize backtracking. Filter or cross-reference with Ironman needs.",
+                phases: ["Early Game", "Mid Game"],
+                modes: ["ironman", "bronzeman"],
+                tags: ["quests", "efficiency"]
+            },
+            {
+                id: 12,
+                title: "Ironman Money Making Guide (Wiki)",
+                type: "guide",
+                url: "https://oldschool.runescape.wiki/w/Ironman_money_making_guide",
+                description: "Curated list of Ironman-friendly money makers by level and requirements.",
+                phases: ["Early Game", "Mid Game"],
+                modes: ["ironman"],
+                tags: ["money", "gp"]
+            }
+        ]
+
+        // Current filters and state
+        let currentMode = 'all'
+        let currentPhaseFilter = 'all'
+        let checkedSteps = new Set()
+
+        // Load progress from localStorage
+        function loadProgress() {
+            const saved = localStorage.getItem('ironbronze_progress')
+            if (saved) {
+                checkedSteps = new Set(JSON.parse(saved))
+            }
+        }
+
+        function saveProgress() {
+            localStorage.setItem('ironbronze_progress', JSON.stringify([...checkedSteps]))
+            updateProgressUI()
+        }
+
+        function updateProgressUI() {
+            const total = steps.length
+            const completed = checkedSteps.size
+            const percent = total > 0 ? Math.round((completed / total) * 100) : 0
+            
+            const progressText = document.getElementById('progress-text')
+            const progressBar = document.getElementById('progress-bar')
+            
+            if (progressText) progressText.textContent = `${completed}/${total}`
+            if (progressBar) {
+                progressBar.style.width = `${percent}%`
+                progressBar.style.background = percent > 70 ? 'linear-gradient(to right, #10b981, #14b8a6)' : 
+                                             percent > 30 ? 'linear-gradient(to right, #f59e0b, #eab308)' : 
+                                             'linear-gradient(to right, #f59e0b, #f59e0b)'
+            }
+        }
+
+        function toggleStepComplete(stepId, event) {
+            if (event) event.stopImmediatePropagation()
+            
+            if (checkedSteps.has(stepId)) {
+                checkedSteps.delete(stepId)
+            } else {
+                checkedSteps.add(stepId)
+            }
+            saveProgress()
+            renderSteps() // Re-render to update checkboxes
+        }
+
+        function markStepCompleteFromModal() {
+            const modal = document.getElementById('step-modal')
+            const stepId = parseInt(modal.dataset.currentStepId)
+            if (!stepId) return
+            
+            if (!checkedSteps.has(stepId)) {
+                checkedSteps.add(stepId)
+                saveProgress()
+            }
+            hideStepModal()
+            renderSteps()
+        }
+
+        function resetProgress() {
+            if (confirm('Reset all progress tracking?')) {
+                checkedSteps.clear()
+                localStorage.removeItem('ironbronze_progress')
+                renderSteps()
+                updateProgressUI()
+            }
+        }
+
+        // Render Steps
+        function renderSteps(filteredSteps = null) {
+            const container = document.getElementById('steps-container')
+            container.innerHTML = ''
+            
+            let toRender = filteredSteps || steps
+            
+            // Apply mode filter
+            if (currentMode !== 'all') {
+                toRender = toRender.filter(step => {
+                    // For now, all steps are relevant to both. In future we can add mode-specific steps.
+                    return true
+                })
+            }
+            
+            // Group by phase
+            const phases = {}
+            toRender.forEach(step => {
+                if (!phases[step.phase]) phases[step.phase] = []
+                phases[step.phase].push(step)
+            })
+            
+            const phaseOrder = ["Early Game", "Mid Game", "Late Game"]
+            
+            phaseOrder.forEach(phaseName => {
+                if (!phases[phaseName] || phases[phaseName].length === 0) return
+                
+                const phaseDiv = document.createElement('div')
+                phaseDiv.className = `phase-section ${currentPhaseFilter !== 'all' && currentPhaseFilter !== phaseName ? 'hidden' : ''}`
+                
+                // Phase Header
+                const header = document.createElement('div')
+                header.className = `phase-header flex items-center justify-between px-6 py-4 rounded-3xl mb-3 border border-slate-700`
+                header.innerHTML = `
+                    <div class="flex items-center gap-x-4">
+                        <div class="w-9 h-9 flex-shrink-0 bg-slate-800 rounded-2xl flex items-center justify-center">
+                            <i class="fa-solid ${phaseName === 'Early Game' ? 'fa-seedling text-emerald-400' : 
+                                               phaseName === 'Mid Game' ? 'fa-chart-line text-amber-400' : 
+                                               'fa-tachometer-alt text-violet-400'} text-xl"></i>
+                        </div>
+                        <div>
+                            <div class="font-semibold text-xl">${phaseName}</div>
+                            <div class="text-xs text-slate-400">${phases[phaseName].length} steps • ${phaseName === 'Early Game' ? 'Foundations & unlocks' : phaseName === 'Mid Game' ? 'Power spikes & efficiency' : 'Endgame content'}</div>
+                        </div>
+                    </div>
+                    <div class="text-xs px-3 py-1 bg-slate-800 rounded-3xl text-slate-400 font-mono">
+                        ${phases[phaseName].filter(s => checkedSteps.has(s.id)).length}/${phases[phaseName].length}
+                    </div>
+                `
+                phaseDiv.appendChild(header)
+                
+                // Steps in this phase
+                const stepsList = document.createElement('div')
+                stepsList.className = 'space-y-2 pl-2'
+                
+                phases[phaseName].forEach(step => {
+                    const isChecked = checkedSteps.has(step.id)
+                    const stepEl = document.createElement('div')
+                    stepEl.className = `compact-step group flex items-start gap-x-4 bg-slate-900 border border-slate-700 hover:border-slate-600 rounded-3xl px-5 py-4 cursor-pointer ${isChecked ? 'opacity-70' : ''}`
+                    
+                    stepEl.innerHTML = `
+                        <div class="pt-1">
+                            <input type="checkbox" ${isChecked ? 'checked' : ''} 
+                                   class="w-4 h-4 accent-emerald-500 cursor-pointer mt-0.5"
+                                   onchange="toggleStepComplete(${step.id}, event)">
+                        </div>
+                        
+                        <div class="flex-1 min-w-0" onclick="showStepModal(${step.id})">
+                            <div class="flex items-start justify-between gap-x-3">
+                                <div class="flex-1">
+                                    <div class="font-semibold group-hover:text-amber-300 transition-colors">${step.title}</div>
+                                    <div class="text-sm text-slate-400 line-clamp-2 mt-0.5">${step.short}</div>
+                                </div>
+                                
+                                <div class="flex-shrink-0 flex flex-col items-end gap-y-1 text-right">
+                                    <div class="flex items-center gap-x-1.5">
+                                        ${step.difficulty === 'Trivial' || step.difficulty === 'Easy' ? 
+                                            `<span class="text-[10px] px-2 py-px bg-emerald-900 text-emerald-300 rounded">EASY</span>` : 
+                                          step.difficulty.includes('Medium') ? 
+                                            `<span class="text-[10px] px-2 py-px bg-amber-900 text-amber-300 rounded">MED</span>` : 
+                                            `<span class="text-[10px] px-2 py-px bg-red-900 text-red-300 rounded">HARD</span>`}
+                                        
+                                        <span class="font-mono text-[10px] text-slate-500">${step.est_time}</span>
+                                    </div>
+                                    
+                                    <div class="flex gap-x-1">
+                                        ${currentMode === 'all' || currentMode === 'ironman' ? 
+                                            `<span class="mode-badge bg-emerald-900 text-emerald-300">IM</span>` : ''}
+                                        ${currentMode === 'all' || currentMode === 'bronzeman' ? 
+                                            `<span class="mode-badge bg-amber-900 text-amber-300">BM</span>` : ''}
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center gap-x-2 mt-3 text-xs">
+                                <span class="px-2.5 py-px bg-slate-800 rounded text-slate-400">${step.phase}</span>
+                                ${step.tags.slice(0,2).map(tag => 
+                                    `<span class="px-2 py-px bg-slate-800 text-slate-500 rounded text-[10px]">${tag}</span>`
+                                ).join('')}
+                            </div>
+                        </div>
+                    `
+                    
+                    stepsList.appendChild(stepEl)
+                })
+                
+                phaseDiv.appendChild(stepsList)
+                container.appendChild(phaseDiv)
+            })
+            
+            updateProgressUI()
+        }
+
+        function filterSteps() {
+            const searchTerm = document.getElementById('step-search').value.toLowerCase().trim()
+            
+            let filtered = steps
+            
+            if (searchTerm.length > 1) {
+                filtered = filtered.filter(step => 
+                    step.title.toLowerCase().includes(searchTerm) ||
+                    step.short.toLowerCase().includes(searchTerm) ||
+                    step.details.toLowerCase().includes(searchTerm) ||
+                    step.tags.join(' ').toLowerCase().includes(searchTerm)
+                )
+            }
+            
+            // Re-apply phase filter if active
+            const activePhaseBtn = document.querySelector('#phase-filters .active')
+            if (activePhaseBtn && activePhaseBtn.dataset.phase !== 'all') {
+                filtered = filtered.filter(s => s.phase === activePhaseBtn.dataset.phase)
+            }
+            
+            renderSteps(filtered)
+        }
+
+        function filterByPhase(phase) {
+            // Update active button styles
+            document.querySelectorAll('#phase-filters button').forEach(btn => {
+                btn.classList.remove('active', 'bg-white', 'text-slate-950')
+                btn.classList.add('bg-slate-800', 'text-slate-300')
+                
+                if (btn.dataset.phase === phase) {
+                    btn.classList.add('active', 'bg-white', 'text-slate-950')
+                    btn.classList.remove('bg-slate-800', 'text-slate-300')
+                }
+            })
+            
+            currentPhaseFilter = phase
+            
+            const searchTerm = document.getElementById('step-search').value.toLowerCase().trim()
+            let filtered = steps
+            
+            if (phase !== 'all') {
+                filtered = filtered.filter(s => s.phase === phase)
+            }
+            
+            if (searchTerm.length > 1) {
+                filtered = filtered.filter(step => 
+                    step.title.toLowerCase().includes(searchTerm) ||
+                    step.short.toLowerCase().includes(searchTerm) ||
+                    step.details.toLowerCase().includes(searchTerm)
+                )
+            }
+            
+            renderSteps(filtered)
+        }
+
+        function showAllSteps() {
+            document.getElementById('step-search').value = ''
+            document.querySelectorAll('#phase-filters button').forEach(b => b.classList.remove('active', 'bg-white', 'text-slate-950'))
+            currentPhaseFilter = 'all'
+            renderSteps()
+        }
+
+        // Step Modal
+        function showStepModal(stepId) {
+            const step = steps.find(s => s.id === stepId)
+            if (!step) return
+            
+            const modal = document.getElementById('step-modal')
+            const header = document.getElementById('modal-step-header')
+            const body = document.getElementById('modal-step-body')
+            
+            modal.dataset.currentStepId = stepId
+            
+            header.innerHTML = `
+                <div>
+                    <div class="flex items-center gap-x-3">
+                        <span class="text-xs px-3 py-1 bg-slate-800 rounded-2xl text-slate-400">${step.phase}</span>
+                        <span class="text-xs px-3 py-1 bg-slate-800 rounded-2xl text-emerald-300">${step.difficulty}</span>
+                    </div>
+                    <h3 class="text-3xl font-semibold tracking-tight mt-2 pr-8">${step.title}</h3>
+                    <p class="text-slate-400 mt-1">${step.short}</p>
+                </div>
+            `
+            
+            let modeNotesHTML = ''
+            if (currentMode === 'all' || currentMode === 'ironman') {
+                modeNotesHTML += `
+                    <div class="bg-emerald-950/40 border border-emerald-900/60 rounded-2xl p-5">
+                        <div class="flex items-center gap-x-2 mb-2 text-emerald-400">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            <span class="font-semibold text-sm">IRONMAN NOTES</span>
+                        </div>
+                        <div class="text-sm text-emerald-100">${step.iron_notes}</div>
+                    </div>`
+            }
+            if (currentMode === 'all' || currentMode === 'bronzeman') {
+                modeNotesHTML += `
+                    <div class="bg-amber-950/30 border border-amber-900/60 rounded-2xl p-5">
+                        <div class="flex items-center gap-x-2 mb-2 text-amber-400">
+                            <i class="fa-solid fa-unlock"></i>
+                            <span class="font-semibold text-sm">BRONZEMAN NOTES</span>
+                        </div>
+                        <div class="text-sm text-amber-100">${step.bronze_notes}</div>
+                    </div>`
+            }
+            
+            body.innerHTML = `
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
+                    <!-- Left column: Details -->
+                    <div class="md:col-span-3 space-y-6">
+                        <div>
+                            <div class="uppercase text-xs tracking-widest text-slate-500 mb-2">WHAT TO DO</div>
+                            <div class="prose prose-invert text-sm text-slate-200">${step.details}</div>
+                        </div>
+                        
+                        <div>
+                            <div class="uppercase text-xs tracking-widest text-slate-500 mb-2">REQUIREMENTS</div>
+                            <div class="text-sm bg-slate-950 border border-slate-700 px-4 py-3 rounded-2xl">${step.requirements}</div>
+                        </div>
+                        
+                        <div>
+                            <div class="uppercase text-xs tracking-widest text-slate-500 mb-2">RECOMMENDED METHODS</div>
+                            <ul class="space-y-1.5 text-sm">
+                                ${step.methods.map(m => `<li class="flex gap-x-2"><span class="text-emerald-400 mt-1">→</span> <span>${m}</span></li>`).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Right: Mode notes + Links -->
+                    <div class="md:col-span-2 space-y-4">
+                        ${modeNotesHTML}
+                        
+                        <div class="pt-3">
+                            <div class="uppercase text-xs tracking-widest text-slate-500 mb-3">RESOURCES &amp; LINKS</div>
+                            
+                            <div class="space-y-2">
+                                ${step.wiki ? `
+                                <a href="${step.wiki}" target="_blank" 
+                                   class="flex items-center justify-between group px-4 py-3 bg-slate-950 hover:bg-slate-800 border border-slate-700 rounded-2xl text-sm">
+                                    <div class="flex items-center gap-x-3">
+                                        <i class="fa-brands fa-wikipedia-w text-slate-400 group-hover:text-white"></i>
+                                        <span>OSRS Wiki</span>
+                                    </div>
+                                    <i class="fa-solid fa-external-link-alt text-xs text-slate-500 group-hover:text-white"></i>
+                                </a>` : ''}
+                                
+                                ${step.video ? `
+                                <a href="${step.video}" target="_blank" 
+                                   class="flex items-center justify-between group px-4 py-3 bg-slate-950 hover:bg-slate-800 border border-slate-700 rounded-2xl text-sm">
+                                    <div class="flex items-center gap-x-3">
+                                        <i class="fa-brands fa-youtube text-red-400 group-hover:text-red-500"></i>
+                                        <span>Watch Video Guide(s)</span>
+                                    </div>
+                                    <i class="fa-solid fa-external-link-alt text-xs text-slate-500 group-hover:text-white"></i>
+                                </a>` : ''}
+                                
+                                <button onclick="copyStepToClipboard(${step.id})" 
+                                        class="w-full flex items-center justify-center gap-x-2 text-xs py-3 border border-slate-700 hover:bg-slate-800 rounded-2xl text-slate-400 hover:text-white">
+                                    <i class="fa-solid fa-copy"></i>
+                                    <span>Copy step details</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `
+            
+            modal.classList.remove('hidden')
+            modal.classList.add('flex')
+        }
+
+        function hideStepModal() {
+            const modal = document.getElementById('step-modal')
+            modal.classList.remove('flex')
+            modal.classList.add('hidden')
+        }
+
+        function copyStepToClipboard(stepId) {
+            const step = steps.find(s => s.id === stepId)
+            if (!step) return
+            
+            const text = `${step.title}\n\n${step.details}\n\nRequirements: ${step.requirements}\n\nIronman: ${step.iron_notes}\nBronzeman: ${step.bronze_notes}\n\nWiki: ${step.wiki || 'N/A'}\nVideo: ${step.video || 'N/A'}`
+            
+            navigator.clipboard.writeText(text).then(() => {
+                const originalText = event.currentTarget ? event.currentTarget.innerHTML : ''
+                // Simple feedback
+                const btns = document.querySelectorAll('#step-modal button')
+                btns.forEach(b => {
+                    if (b.innerText.includes('Copy')) {
+                        const orig = b.innerHTML
+                        b.innerHTML = `<i class="fa-solid fa-check"></i> <span>Copied!</span>`
+                        setTimeout(() => { b.innerHTML = orig }, 1800)
+                    }
+                })
+            }).catch(() => {
+                alert('Could not copy automatically. Here is the text:\n\n' + text)
+            })
+        }
+
+        // Mode Switcher
+        function switchMode(mode) {
+            currentMode = mode
+            
+            // Update button styles
+            document.querySelectorAll('.mode-btn').forEach(btn => {
+                btn.classList.remove('bg-white', 'text-slate-950', 'shadow')
+                btn.classList.add('text-slate-300')
+                
+                if ((mode === 'all' && btn.id === 'mode-all') ||
+                    (mode === 'ironman' && btn.id === 'mode-ironman') ||
+                    (mode === 'bronzeman' && btn.id === 'mode-bronzeman')) {
+                    btn.classList.add('bg-white', 'text-slate-950', 'shadow')
+                    btn.classList.remove('text-slate-300')
+                }
+            })
+            
+            // Re-render steps and resources with new filter context
+            renderSteps()
+            filterResources() // Also update resources view if visible
+        }
+
+        // Combat Training Tabs
+        function switchCombatTab(tabIndex) {
+            // Hide all content
+            document.querySelectorAll('[id^="combat-content-"]').forEach(el => el.classList.add('hidden'));
+            
+            // Show selected content
+            document.getElementById('combat-content-' + tabIndex).classList.remove('hidden');
+            
+            // Update tab button styles
+            document.querySelectorAll('.combat-tab').forEach((btn, index) => {
+                btn.classList.remove('border-b-2', 'border-amber-400', 'text-amber-400');
+                btn.classList.add('text-slate-400');
+                
+                if (index === tabIndex) {
+                    btn.classList.add('border-b-2', 'border-amber-400', 'text-amber-400');
+                    btn.classList.remove('text-slate-400');
+                }
+            });
+        }
+
+        // AFK Skilling Tabs
+        function switchAfkTab(tabIndex) {
+            // Hide all content
+            document.querySelectorAll('[id^="afk-content-"]').forEach(el => el.classList.add('hidden'));
+            
+            // Show selected content
+            document.getElementById('afk-content-' + tabIndex).classList.remove('hidden');
+            
+            // Update tab button styles
+            document.querySelectorAll('.afk-tab').forEach((btn, index) => {
+                btn.classList.remove('border-b-2', 'border-sky-400', 'text-sky-400');
+                btn.classList.add('text-slate-400');
+                
+                if (index === tabIndex) {
+                    btn.classList.add('border-b-2', 'border-sky-400', 'text-sky-400');
+                    btn.classList.remove('text-slate-400');
+                }
+            });
+        }
+
+        // Main Top Tab Navigation
+        function showMainTab(tab) {
+            // Hide all major content sections
+            const sections = ['roadmap', 'quests', 'combat', 'afk', 'money'];
+            sections.forEach(s => {
+                const el = document.getElementById('main-section-' + s);
+                if (el) el.style.display = 'none';
+            });
+
+            // Show selected section
+            const activeSection = document.getElementById('main-section-' + tab);
+            if (activeSection) activeSection.style.display = 'block';
+
+            // Update tab styles
+            document.querySelectorAll('.top-tab').forEach(btn => {
+                btn.classList.remove('active', 'bg-[#3a2a1f]', 'text-[#d4af37]');
+                btn.classList.add('text-slate-300');
+            });
+
+            const activeBtn = document.getElementById('main-tab-' + tab);
+            if (activeBtn) {
+                activeBtn.classList.add('active', 'bg-[#3a2a1f]', 'text-[#d4af37]');
+                activeBtn.classList.remove('text-slate-300');
+            }
+        }
+
+        // Filter HCIM Safe Methods
+        function filterHcimMethods(category) {
+            const cards = document.querySelectorAll('.hcim-card');
+            const buttons = document.querySelectorAll('.hcim-filter');
+            
+            // Update button styles
+            buttons.forEach(btn => btn.classList.remove('bg-white', 'text-slate-950'));
+            buttons.forEach(btn => btn.classList.add('bg-slate-800', 'text-slate-300'));
+            
+            // Find the clicked button and style it as active
+            event.target.classList.remove('bg-slate-800', 'text-slate-300');
+            event.target.classList.add('bg-white', 'text-slate-950');
+            
+            cards.forEach(card => {
+                if (category === 'all') {
+                    card.style.display = '';
+                } else {
+                    const cardCategory = card.getAttribute('data-category') || '';
+                    if (cardCategory.includes(category)) {
+                        card.style.display = '';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                }
+            });
+        }
+
+        // Render Resources
+        function renderResources(filteredResources = null) {
+            const grid = document.getElementById('resources-grid')
+            grid.innerHTML = ''
+            
+            let toShow = filteredResources || resources
+            
+            if (currentMode !== 'all') {
+                toShow = toShow.filter(r => r.modes.includes(currentMode) || r.modes.includes('both'))
+            }
+            
+            if (toShow.length === 0) {
+                grid.innerHTML = `<div class="col-span-full text-center py-12 text-slate-400">No resources match your current filters.</div>`
+                return
+            }
+            
+            toShow.forEach(res => {
+                const card = document.createElement('div')
+                card.className = `resource-card bg-slate-900 border border-slate-700 hover:border-slate-500 rounded-3xl p-5 flex flex-col h-full cursor-pointer`
+                
+                const typeIcon = res.type === 'video' ? 'fa-brands fa-youtube text-red-400' : 
+                                res.type === 'guide' ? 'fa-solid fa-book text-sky-400' : 
+                                'fa-solid fa-tools text-violet-400'
+                
+                const typeLabel = res.type === 'video' ? 'VIDEO SERIES' : 
+                                 res.type === 'guide' ? 'WRITTEN GUIDE' : 'TOOL / DATABASE'
+                
+                card.innerHTML = `
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <div class="uppercase tracking-widest text-[10px] text-slate-500">${typeLabel}</div>
+                            <h4 class="font-semibold leading-tight mt-1 pr-4">${res.title}</h4>
+                        </div>
+                        <i class="${typeIcon} text-2xl opacity-70"></i>
+                    </div>
+                    
+                    <p class="text-sm text-slate-400 mt-4 flex-1 line-clamp-3">${res.description}</p>
+                    
+                    <div class="mt-auto pt-4 flex items-center justify-between text-xs">
+                        <div class="flex flex-wrap gap-1">
+                            ${res.modes.map(m => 
+                                `<span class="mode-badge ${m === 'ironman' ? 'bg-emerald-900 text-emerald-300' : m === 'bronzeman' ? 'bg-amber-900 text-amber-300' : 'bg-slate-700 text-slate-300'}">${m === 'ironman' ? 'IM' : m === 'bronzeman' ? 'BM' : 'BOTH'}</span>`
+                            ).join('')}
+                        </div>
+                        
+                        <div onclick="event.stopImmediatePropagation(); window.open('${res.url}', '_blank')" 
+                             class="px-3 py-1 bg-slate-800 hover:bg-slate-700 rounded-2xl flex items-center gap-x-1 text-xs text-slate-300">
+                            OPEN <i class="fa-solid fa-external-link-alt ml-1 text-[9px]"></i>
+                        </div>
+                    </div>
+                `
+                
+                card.onclick = () => window.open(res.url, '_blank')
+                grid.appendChild(card)
+            })
+        }
+
+        function filterResources(typeFilter = null) {
+            const searchInput = document.getElementById('resource-search')
+            const searchTerm = searchInput ? searchInput.value.toLowerCase().trim() : ''
+            
+            let filtered = resources
+            
+            // Type filter buttons
+            if (typeFilter) {
+                // Clear active states
+                document.querySelectorAll('.resource-filter-btn').forEach(b => b.classList.remove('active', 'bg-white', 'text-slate-950'))
+                
+                if (typeFilter !== 'all') {
+                    const btn = document.getElementById(`res-filter-${typeFilter}`)
+                    if (btn) btn.classList.add('active', 'bg-white', 'text-slate-950')
+                    filtered = filtered.filter(r => r.type === typeFilter)
+                } else {
+                    const allBtn = document.getElementById('res-filter-all')
+                    if (allBtn) allBtn.classList.add('active', 'bg-white', 'text-slate-950')
+                }
+            }
+            
+            if (searchTerm.length > 1) {
+                filtered = filtered.filter(r => 
+                    r.title.toLowerCase().includes(searchTerm) || 
+                    r.description.toLowerCase().includes(searchTerm) ||
+                    r.tags.join(' ').toLowerCase().includes(searchTerm)
+                )
+            }
+            
+            // Mode context
+            if (currentMode !== 'all') {
+                filtered = filtered.filter(r => r.modes.includes(currentMode) || r.modes.includes('both'))
+            }
+            
+            renderResources(filtered)
+        }
+
+        // Setup phase filter buttons
+        function setupPhaseFilters() {
+            const container = document.getElementById('phase-filters')
+            container.innerHTML = ''
+            
+            const phases = ['all', 'Early Game', 'Mid Game', 'Late Game']
+            
+            phases.forEach(phase => {
+                const btn = document.createElement('button')
+                btn.className = `px-5 py-1.5 text-xs font-medium rounded-3xl transition-all border ${phase === 'all' ? 'bg-white text-slate-950 border-white' : 'bg-slate-800 text-slate-300 border-slate-700 hover:border-slate-500'}`
+                btn.textContent = phase === 'all' ? 'All Phases' : phase
+                btn.dataset.phase = phase
+                
+                btn.onclick = () => filterByPhase(phase)
+                
+                container.appendChild(btn)
+            })
+        }
+
+        // Setup resource filter buttons active state
+        function setupResourceFilters() {
+            const allBtn = document.getElementById('res-filter-all')
+            if (allBtn) {
+                allBtn.classList.add('active', 'bg-white', 'text-slate-950')
+                
+                // Make sure other buttons remove active from all when clicked
+                document.querySelectorAll('.resource-filter-btn').forEach(btn => {
+                    if (btn.id !== 'res-filter-all') {
+                        btn.onclick = () => {
+                            document.querySelectorAll('.resource-filter-btn').forEach(b => b.classList.remove('active', 'bg-white', 'text-slate-950'))
+                            btn.classList.add('active', 'bg-white', 'text-slate-950')
+                        }
+                    }
+                })
+            }
+        }
+
+        // Contribution flow
+        function showContributeModal() {
+            document.getElementById('contribute-modal').classList.remove('hidden')
+            document.getElementById('contribute-modal').classList.add('flex')
+        }
+        
+        function hideContributeModal() {
+            document.getElementById('contribute-modal').classList.remove('flex')
+            document.getElementById('contribute-modal').classList.add('hidden')
+        }
+        
+        function submitContribution() {
+            const type = document.getElementById('contrib-type').value
+            const details = document.getElementById('contrib-details').value.trim()
+            const rsn = document.getElementById('contrib-rsn').value.trim()
+            const mode = document.getElementById('contrib-mode').value
+            
+            if (!details) {
+                alert('Please provide some details or a link!')
+                return
+            }
+            
+            // In real version this would POST to a backend or form endpoint
+            console.log('Contribution submitted:', { type, details, rsn, mode })
+            
+            hideContributeModal()
+            
+            // Thank you message
+            const thanks = document.createElement('div')
+            thanks.className = `fixed bottom-6 left-1/2 -translate-x-1/2 bg-emerald-600 text-white px-8 py-4 rounded-3xl shadow-xl flex items-center gap-x-3 z-[200]`
+            thanks.innerHTML = `
+                <i class="fa-solid fa-check-circle text-xl"></i> 
+                <span>Thank you! Your submission has been received and will be reviewed.</span>
+            `
+            document.body.appendChild(thanks)
+            
+            setTimeout(() => {
+                thanks.style.transition = 'all 0.3s ease'
+                thanks.style.opacity = '0'
+                setTimeout(() => thanks.remove(), 300)
+            }, 2800)
+        }
+
+        function showUnlockModal() {
+            alert("Bronzeman Unlock Tracker (v1.1 preview)\n\nThis will be a full interactive checklist of 80+ key items (whips, godswords, claws, blowpipe, tbow, etc.) with 'First Obtain' methods (self-farm locations or recommended PK spots) and current unlock status synced to your progress.\n\nFor now, the example cards above show the concept. Want this prioritized next?")
+        }
+
+        function showAboutModal() {
+            const modalHTML = `
+                <div onclick="this.remove()" class="fixed inset-0 bg-black/80 z-[120] flex items-center justify-center p-6">
+                    <div onclick="event.stopImmediatePropagation()" class="bg-slate-900 border border-slate-700 rounded-3xl max-w-2xl w-full p-9 modal">
+                        <h2 class="text-3xl font-semibold tracking-tight">About The Iron Man Guide</h2>
+                        
+                        <div class="prose prose-invert text-sm mt-6 text-slate-300">
+                            <p>The Iron Man Guide was built to solve a real problem: the best Ironman and Bronzeman knowledge is scattered across dozens of YouTube series, wiki pages, Reddit threads, and spreadsheets.</p>
+                            
+                            <p class="mt-3">Our goal is to compile everything into one clean, chronological, mode-aware experience so you always know exactly what to do next.</p>
+                            
+                            <h4 class="font-semibold mt-6 mb-1 text-base">How we compile data:</h4>
+                            <ul class="text-xs space-y-1 pl-4">
+                                <li>• Cross-reference OSRS Wiki optimal quest guides + Ironman-specific methods</li>
+                                <li>• Synthesize popular progression series (Gudi-style Bronzeman, efficient Ironman creators)</li>
+                                <li>• Incorporate community tools like ironman.guide and Ladlor charts</li>
+                                <li>• Add mode-specific notes for differences in strategy and unlocks</li>
+                                <li>• Keep everything updated as new content (Sailing, new bosses) releases</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mt-8 flex justify-end">
+                            <button onclick="this.closest('.fixed').remove()" class="px-8 py-3 border border-slate-600 rounded-3xl text-sm">Close</button>
+                        </div>
+                    </div>
+                </div>
+            `
+            document.body.insertAdjacentHTML('beforeend', modalHTML)
+        }
+
+        // Keyboard shortcuts
+        function setupKeyboardShortcuts() {
+            document.addEventListener('keydown', function(e) {
+                if (e.key === '/' && document.activeElement.tagName === 'BODY') {
+                    e.preventDefault()
+                    const search = document.getElementById('step-search')
+                    if (search) search.focus()
+                }
+                
+                if (e.key.toLowerCase() === 'escape') {
+                    const modals = document.querySelectorAll('.fixed.inset-0:not(.hidden)')
+                    if (modals.length > 0) {
+                        modals[modals.length-1].remove()
+                    } else {
+                        const stepModal = document.getElementById('step-modal')
+                        if (!stepModal.classList.contains('hidden')) hideStepModal()
+                    }
+                }
+            })
+            
+            // Easter egg: type "bronze" or "iron"
+            let typed = ''
+            document.addEventListener('keypress', function(e) {
+                typed += e.key.toLowerCase()
+                if (typed.length > 8) typed = typed.slice(-8)
+                
+                if (typed.includes('bronze')) {
+                    typed = ''
+                    const bmBtn = document.getElementById('mode-bronzeman')
+                    if (bmBtn) bmBtn.click()
+                }
+                if (typed.includes('ironman')) {
+                    typed = ''
+                    const imBtn = document.getElementById('mode-ironman')
+                    if (imBtn) imBtn.click()
+                }
+            })
+        }
+
+        // Initialize everything
+        function initializeSite() {
+            initializeTailwind()
+            loadProgress()
+            
+            // Initial renders
+            setupPhaseFilters()
+            renderSteps()
+            renderResources()
+            setupResourceFilters()
+
+            // Set default active tab
+            document.getElementById('main-section-roadmap').style.display = 'block';
+            const defaultTab = document.getElementById('main-tab-roadmap');
+            if (defaultTab) defaultTab.classList.add('active', 'bg-[#3a2a1f]', 'text-[#d4af37]');
+            
+            // Set initial mode buttons
+            const allModeBtn = document.getElementById('mode-all')
+            if (allModeBtn) allModeBtn.classList.add('bg-white', 'text-slate-950', 'shadow')
+            
+            // Default phase filter active
+            setTimeout(() => {
+                const allPhase = document.querySelector('#phase-filters button[data-phase="all"]')
+                if (allPhase) allPhase.classList.add('bg-white', 'text-slate-950', 'border-white')
+            }, 50)
+            
+            setupKeyboardShortcuts()
+            
+            // Bonus: Show a welcome toast once
+            if (!localStorage.getItem('ironbronze_welcome_shown')) {
+                setTimeout(() => {
+                    // Can add a subtle toast here if desired
+                    localStorage.setItem('ironbronze_welcome_shown', 'true')
+                }, 4500)
+            }
+            
+            // Make sure progress bar updates initially
+            updateProgressUI()
+            
+            console.log('%c[The Iron Man Guide] Site initialized successfully. Ready for expansion.', 'color:#64748b')
+        }
+
+        // Boot the app
+        window.onload = initializeSite
+    </script>
+</body>
+</html>
