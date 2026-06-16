@@ -86,7 +86,59 @@
     <div class="max-w-screen-2xl mx-auto px-8 py-12">
         <div class="mb-8">
             <h1 class="text-4xl font-semibold tracking-tight mb-2">Away From Keyboard (AFK) Skilling</h1>
-            <p class="text-slate-400 max-w-2xl">Low-effort training methods perfect for Ironmen. Click on a skill to see the best AFK options available.</p>
+            <p class="text-slate-400 max-w-2xl">Low-effort training methods perfect for Ironmen. Special focus on methods that work great on mobile.</p>
+        </div>
+
+        <!-- Mobile Best Section -->
+        <div class="mb-10">
+            <div class="flex items-center gap-x-2 mb-4">
+                <i class="fa-solid fa-mobile-screen-button text-[#d4af37]"></i>
+                <h2 class="text-xl font-semibold text-[#d4af37]">Best AFK Methods for Mobile</h2>
+            </div>
+            <p class="text-sm text-slate-400 mb-4">These methods are especially good on mobile because they require minimal taps and allow long AFK times.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="osrs-card rounded-xl p-4">
+                    <div class="font-semibold">Shooting Stars</div>
+                    <div class="text-xs text-emerald-700 mb-1">Mining • Extremely AFK</div>
+                    <div class="text-sm">15–30+ min per star. One of the best mobile methods in the game.</div>
+                </div>
+                <div class="osrs-card rounded-xl p-4">
+                    <div class="font-semibold">Cannonballs</div>
+                    <div class="text-xs text-emerald-700 mb-1">Smithing • Extremely AFK</div>
+                    <div class="text-sm">8–12 min per inventory. Very low effort, great profit.</div>
+                </div>
+                <div class="osrs-card rounded-xl p-4">
+                    <div class="font-semibold">Broad Arrows / Bolts</div>
+                    <div class="text-xs text-emerald-700 mb-1">Fletching • Extremely AFK</div>
+                    <div class="text-sm">10+ min per inventory. Excellent late-game Fletching on mobile.</div>
+                </div>
+                <div class="osrs-card rounded-xl p-4">
+                    <div class="font-semibold">Wine Making</div>
+                    <div class="text-xs text-emerald-700 mb-1">Cooking • Extremely AFK</div>
+                    <div class="text-sm">8–12 min per inventory. One of the most AFK Cooking methods.</div>
+                </div>
+                <div class="osrs-card rounded-xl p-4">
+                    <div class="font-semibold">Redwood Trees</div>
+                    <div class="text-xs text-emerald-700 mb-1">Woodcutting • Very AFK</div>
+                    <div class="text-sm">6–10 min per tree. Great late-game Woodcutting on mobile.</div>
+                </div>
+                <div class="osrs-card rounded-xl p-4">
+                    <div class="font-semibold">Karambwan Fishing</div>
+                    <div class="text-xs text-emerald-700 mb-1">Fishing • Very AFK</div>
+                    <div class="text-sm">4–7 min between banking. Consistent and mobile friendly.</div>
+                </div>
+                <div class="osrs-card rounded-xl p-4">
+                    <div class="font-semibold">Mining Bone Shards</div>
+                    <div class="text-xs text-emerald-700 mb-1">Mining • Very AFK</div>
+                    <div class="text-sm">5–10 min per spot. Great mobile method with useful Prayer resources.</div>
+                </div>
+                <div class="osrs-card rounded-xl p-4">
+                    <div class="font-semibold">Amethyst</div>
+                    <div class="text-xs text-emerald-700 mb-1">Mining • Very AFK</div>
+                    <div class="text-sm">Level 92. 6–10 min per inventory. Best late-game Mining on mobile.</div>
+                </div>
+            </div>
         </div>
 
         <!-- Skill Tabs -->
@@ -98,7 +150,13 @@
             <button onclick="switchAfkTab(2)" id="afk-tab-2"
                     class="afk-tab px-6 py-3 text-sm font-medium text-slate-300 hover:text-white">Fishing</button>
             <button onclick="switchAfkTab(3)" id="afk-tab-3"
-                    class="afk-tab px-6 py-3 text-sm font-medium text-slate-300 hover:text-white">Other</button>
+                    class="afk-tab px-6 py-3 text-sm font-medium text-slate-300 hover:text-white">Fletching</button>
+            <button onclick="switchAfkTab(4)" id="afk-tab-4"
+                    class="afk-tab px-6 py-3 text-sm font-medium text-slate-300 hover:text-white">Firemaking</button>
+            <button onclick="switchAfkTab(5)" id="afk-tab-5"
+                    class="afk-tab px-6 py-3 text-sm font-medium text-slate-300 hover:text-white">Smithing</button>
+            <button onclick="switchAfkTab(6)" id="afk-tab-6"
+                    class="afk-tab px-6 py-3 text-sm font-medium text-slate-300 hover:text-white">Cooking</button>
         </div>
 
         <!-- Content -->
@@ -138,9 +196,41 @@
                             <span class="text-xs px-3 py-1 bg-emerald-900 text-emerald-300 rounded">Best Overall</span>
                         </div>
                         <div class="text-sm space-y-2">
-                            <div><strong>Location:</strong> Various (use Star Miners CC or plugin)</div>
+                            <div><strong>Location:</strong> Various (use Star Miners CC or RuneLite plugin)</div>
                             <div><strong>AFK Time:</strong> 15–30+ minutes per star</div>
-                            <div><strong>Ironman Tip:</strong> Great XP + stardust for rewards. Very low effort.</div>
+                            <div><strong>Ironman Tip:</strong> One of the best AFK methods in the game. Great XP + stardust. Extremely mobile friendly with long AFK times.</div>
+                        </div>
+                    </div>
+
+                    <!-- Mining Bone Shards -->
+                    <div class="osrs-card rounded-xl p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <div>
+                                <div class="font-semibold text-lg">Mining Bone Shards</div>
+                                <div class="text-xs text-emerald-700">Level 20+ • Very AFK</div>
+                            </div>
+                            <span class="text-xs px-3 py-1 bg-emerald-900 text-emerald-300 rounded">Great for Mobile</span>
+                        </div>
+                        <div class="text-sm space-y-2">
+                            <div><strong>Location:</strong> Varlamore (Bone Shard mining spots)</div>
+                            <div><strong>AFK Time:</strong> 5–10 minutes</div>
+                            <div><strong>Ironman Tip:</strong> Excellent mobile method. Bone shards are useful for Prayer training. Very low effort and consistent.</div>
+                        </div>
+                    </div>
+
+                    <!-- Amethyst -->
+                    <div class="osrs-card rounded-xl p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <div>
+                                <div class="font-semibold text-lg">Amethyst</div>
+                                <div class="text-xs text-emerald-700">Level 92 • Very AFK</div>
+                            </div>
+                            <span class="text-xs px-3 py-1 bg-emerald-900 text-emerald-300 rounded">Best Late Game</span>
+                        </div>
+                        <div class="text-sm space-y-2">
+                            <div><strong>Location:</strong> Mining Guild (Amethyst crystals)</div>
+                            <div><strong>AFK Time:</strong> 6–10 minutes per inventory</div>
+                            <div><strong>Ironman Tip:</strong> Best late-game Mining method. Can be High Alched for good profit. Very AFK friendly.</div>
                         </div>
                     </div>
 
@@ -185,7 +275,7 @@
                         </div>
                     </div>
 
-                    <!-- Level 15+: Oak Trees (User's example) -->
+                    <!-- Level 15+: Oak Trees -->
                     <div class="osrs-card rounded-xl p-6">
                         <div class="flex justify-between items-start mb-3">
                             <div>
@@ -197,7 +287,7 @@
                         <div class="text-sm space-y-2">
                             <div><strong>Location:</strong> Lumbridge (near general store) or Varrock</div>
                             <div><strong>AFK Time:</strong> 3–6 minutes per tree</div>
-                            <div><strong>Ironman Tip:</strong> Cut oaks in Lumbridge and either sell logs to the general store or fletch them into arrow shafts on the spot for extra profit/XP.</div>
+                            <div><strong>Ironman Tip:</strong> Excellent early AFK method. Cut in Lumbridge and sell logs to the general store or fletch into arrow shafts on the spot. Very mobile friendly.</div>
                         </div>
                     </div>
 
@@ -245,13 +335,13 @@
                         <div class="flex justify-between items-start mb-3">
                             <div>
                                 <div class="font-semibold text-lg">Karambwan Fishing</div>
-                                <div class="text-xs text-emerald-700">Level 65+ • Semi-AFK</div>
+                                <div class="text-xs text-emerald-700">Level 65+ • Very AFK</div>
                             </div>
                         </div>
                         <div class="text-sm space-y-2">
                             <div><strong>Location:</strong> Karamja (after Tai Bwo Wannai Trio)</div>
-                            <div><strong>AFK Time:</strong> 3–6 minutes between banking</div>
-                            <div><strong>Ironman Tip:</strong> Very consistent method. Good food source and decent profit.</div>
+                            <div><strong>AFK Time:</strong> 4–7 minutes between banking</div>
+                            <div><strong>Ironman Tip:</strong> One of the best mid-game AFK fishing methods. Great food source and consistent. Very mobile friendly.</div>
                         </div>
                     </div>
 
@@ -259,13 +349,13 @@
                         <div class="flex justify-between items-start mb-3">
                             <div>
                                 <div class="font-semibold text-lg">Anglerfish</div>
-                                <div class="text-xs text-emerald-700">Level 82+ • Semi-AFK</div>
+                                <div class="text-xs text-emerald-700">Level 82+ • Very AFK</div>
                             </div>
                         </div>
                         <div class="text-sm space-y-2">
                             <div><strong>Location:</strong> Piscatoris Fishing Colony</div>
-                            <div><strong>AFK Time:</strong> 4–7 minutes</div>
-                            <div><strong>Ironman Tip:</strong> Excellent late-game food source with solid AFK rates.</div>
+                            <div><strong>AFK Time:</strong> 5–8 minutes</div>
+                            <div><strong>Ironman Tip:</strong> Excellent late-game food. Very consistent and low effort once unlocked.</div>
                         </div>
                     </div>
                 </div>

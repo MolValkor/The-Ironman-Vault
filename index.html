@@ -203,7 +203,7 @@
             <div class="px-8 py-5 flex items-center justify-between">
                 <div class="flex items-center gap-x-3">
                     <!-- Logo -->
-                    <div class="flex items-center gap-x-2.5">
+                    <a href="index.html" class="flex items-center gap-x-2.5 hover:opacity-90 transition-opacity">
                         <div class="w-9 h-9 bg-gradient-to-br from-amber-500 to-orange-600 rounded-2xl flex items-center justify-center shadow-inner">
                             <i class="fa-solid fa-hammer text-white text-2xl"></i>
                         </div>
@@ -211,7 +211,7 @@
                             <span class="font-display text-3xl font-semibold tracking-tighter">The Ironman Vault</span>
                             <span class="text-[10px] font-mono tracking-[3px] text-slate-500 block -mt-1">OSRS</span>
                         </div>
-                    </div>
+                    </a>
                     <div class="hidden md:flex items-center gap-x-1.5 ml-2">
                         <div class="px-3 py-1 bg-slate-900 rounded-3xl text-xs font-medium flex items-center gap-x-1.5 border border-slate-800">
                             <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
@@ -258,6 +258,7 @@
                 <a href="combat.html" class="top-tab px-6 py-2.5 rounded-t-lg whitespace-nowrap text-slate-300 hover:text-white">Combat Training</a>
                 <a href="afk.html" class="top-tab px-6 py-2.5 rounded-t-lg whitespace-nowrap text-slate-300 hover:text-white">AFK Training</a>
                 <a href="money.html" class="top-tab px-6 py-2.5 rounded-t-lg whitespace-nowrap text-slate-300 hover:text-white">Money Making</a>
+                <a href="resources.html" class="top-tab px-6 py-2.5 rounded-t-lg whitespace-nowrap text-slate-300 hover:text-white">Resources</a>
             </div>
         </div>
     </div>
@@ -318,6 +319,18 @@
                 <div class="text-3xl font-semibold">Community Mode</div>
                 <div class="text-slate-400 text-sm mt-1">Unlock items via drops/PK/crafting → permanent GE access for that item. Perfect for PvP builds.</div>
             </div>
+
+            <div class="bg-slate-900 border border-slate-800 rounded-3xl p-5">
+                <div class="text-purple-400 text-xs font-mono tracking-widest mb-1">ULTIMATE IRONMAN</div>
+                <div class="text-3xl font-semibold">UIM</div>
+                <div class="text-slate-400 text-sm mt-1">No bank. Extreme self-sufficiency. Prioritize death storage, efficient skilling routes, and high-value drops only. Many normal Ironman methods are inefficient or impossible.</div>
+            </div>
+
+            <div class="bg-slate-900 border border-slate-800 rounded-3xl p-5">
+                <div class="text-sky-400 text-xs font-mono tracking-widest mb-1">GROUP IRONMAN</div>
+                <div class="text-3xl font-semibold">GIM</div>
+                <div class="text-slate-400 text-sm mt-1">Shared group storage. Coordinate who does what content. Great for splitting skilling, bossing, and resource gathering roles within the group.</div>
+            </div>
             <div class="bg-slate-900 border border-slate-800 rounded-3xl p-5 col-span-2 md:col-span-1">
                 <div class="flex items-baseline gap-x-2">
                     <div class="text-4xl font-semibold">120+</div>
@@ -329,6 +342,43 @@
                 <div class="text-xs text-slate-400 mb-2">CURRENTLY TRACKING</div>
                 <div class="font-mono text-2xl font-semibold">2,847</div>
                 <div class="text-emerald-400 text-xs">active restricted accounts (community est.)</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Account Linking / Personalization -->
+    <div class="max-w-screen-2xl mx-auto px-8 pb-16">
+        <div class="bg-slate-900 border border-slate-800 rounded-3xl p-8">
+            <div class="flex items-center gap-x-3 mb-6">
+                <i class="fa-solid fa-link text-2xl text-emerald-400"></i>
+                <h2 class="text-2xl font-semibold">Link Your OSRS Account</h2>
+            </div>
+
+            <p class="text-slate-400 mb-6 max-w-2xl">
+                Enter your OSRS username to fetch your stats from the official hiscores. 
+                We'll show personalized recommendations based on your current levels.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-3 max-w-md">
+                <input id="username-input" type="text" placeholder="Your OSRS Username" 
+                       class="flex-1 bg-slate-950 border border-slate-700 rounded-2xl px-5 py-3 text-white placeholder:text-slate-500 focus:outline-none focus:border-emerald-600">
+                <button onclick="fetchPlayerStats()" 
+                        class="px-8 py-3 bg-emerald-600 hover:bg-emerald-500 transition-colors rounded-2xl font-semibold text-white">
+                    Fetch Stats
+                </button>
+            </div>
+
+            <!-- Results Area -->
+            <div id="stats-results" class="hidden mt-8">
+                <div class="border-t border-slate-800 pt-6">
+                    <h3 class="font-semibold mb-4">Your Stats</h3>
+                    <div id="stats-display" class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm"></div>
+
+                    <div class="mt-8">
+                        <h3 class="font-semibold mb-4">Personalized Recommendations</h3>
+                        <div id="recommendations" class="space-y-3 text-sm"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -2397,11 +2447,128 @@
             // Make sure progress bar updates initially
             updateProgressUI()
             
-            console.log('%c[The Iron Man Guide] Site initialized successfully. Ready for expansion.', 'color:#64748b')
+            console.log('%c[The Iron Man Guide] Site initialized successfully. Ready for expansion. Account linking + hiscores feature active.', 'color:#64748b')
         }
 
         // Boot the app
         window.onload = initializeSite
+
+        // ==================== ACCOUNT LINKING / HISCORES ====================
+        async function fetchPlayerStats() {
+            const username = document.getElementById('username-input').value.trim();
+            if (!username) {
+                alert("Please enter your OSRS username.");
+                return;
+            }
+
+            const resultsDiv = document.getElementById('stats-results');
+            const statsDisplay = document.getElementById('stats-display');
+            const recommendationsDiv = document.getElementById('recommendations');
+
+            resultsDiv.classList.remove('hidden');
+            statsDisplay.innerHTML = '<div class="col-span-4 text-slate-400">Fetching stats from hiscores...</div>';
+            recommendationsDiv.innerHTML = '';
+
+            try {
+                const response = await fetch(`https://secure.runescape.com/m=hiscore_oldschool/index_lite.ws?player=${encodeURIComponent(username)}`);
+                
+                if (!response.ok) {
+                    throw new Error("Player not found or API error.");
+                }
+
+                const text = await response.text();
+                const lines = text.trim().split('\n');
+
+                // OSRS hiscores order: Overall, Attack, Defence, Strength, Hitpoints, Ranged, Prayer, Magic, Cooking, Woodcutting, Fletching, Fishing, Firemaking, Crafting, Smithing, Mining, Herblore, Agility, Thieving, Slayer, Farming, Runecrafting, Hunter, Construction
+                const skills = {
+                    attack: parseInt(lines[1].split(',')[1]),
+                    defence: parseInt(lines[2].split(',')[1]),
+                    strength: parseInt(lines[3].split(',')[1]),
+                    hitpoints: parseInt(lines[4].split(',')[1]),
+                    ranged: parseInt(lines[5].split(',')[1]),
+                    prayer: parseInt(lines[6].split(',')[1]),
+                    magic: parseInt(lines[7].split(',')[1]),
+                    woodcutting: parseInt(lines[9].split(',')[1]),
+                    fishing: parseInt(lines[11].split(',')[1]),
+                    firemaking: parseInt(lines[12].split(',')[1]),
+                    mining: parseInt(lines[15].split(',')[1]),
+                    slayer: parseInt(lines[19].split(',')[1]),
+                    runecrafting: parseInt(lines[21].split(',')[1])
+                };
+
+                // Display stats
+                statsDisplay.innerHTML = `
+                    <div class="bg-slate-950 border border-slate-700 rounded-2xl p-4">
+                        <div class="text-emerald-400 text-xs">ATTACK</div>
+                        <div class="text-3xl font-semibold">${skills.attack}</div>
+                    </div>
+                    <div class="bg-slate-950 border border-slate-700 rounded-2xl p-4">
+                        <div class="text-emerald-400 text-xs">STRENGTH</div>
+                        <div class="text-3xl font-semibold">${skills.strength}</div>
+                    </div>
+                    <div class="bg-slate-950 border border-slate-700 rounded-2xl p-4">
+                        <div class="text-emerald-400 text-xs">DEFENCE</div>
+                        <div class="text-3xl font-semibold">${skills.defence}</div>
+                    </div>
+                    <div class="bg-slate-950 border border-slate-700 rounded-2xl p-4">
+                        <div class="text-emerald-400 text-xs">MINING</div>
+                        <div class="text-3xl font-semibold">${skills.mining}</div>
+                    </div>
+                    <div class="bg-slate-950 border border-slate-700 rounded-2xl p-4">
+                        <div class="text-emerald-400 text-xs">WOODCUTTING</div>
+                        <div class="text-3xl font-semibold">${skills.woodcutting}</div>
+                    </div>
+                    <div class="bg-slate-950 border border-slate-700 rounded-2xl p-4">
+                        <div class="text-emerald-400 text-xs">SLAYER</div>
+                        <div class="text-3xl font-semibold">${skills.slayer}</div>
+                    </div>
+                    <div class="bg-slate-950 border border-slate-700 rounded-2xl p-4">
+                        <div class="text-emerald-400 text-xs">RUNECRAFTING</div>
+                        <div class="text-3xl font-semibold">${skills.runecrafting}</div>
+                    </div>
+                    <div class="bg-slate-950 border border-slate-700 rounded-2xl p-4">
+                        <div class="text-emerald-400 text-xs">FIREMAKING</div>
+                        <div class="text-3xl font-semibold">${skills.firemaking}</div>
+                    </div>
+                `;
+
+                // Generate personalized recommendations
+                let recommendations = [];
+
+                if (skills.mining >= 92) {
+                    recommendations.push("You can mine Amethyst — excellent late-game AFK Mining method.");
+                } else if (skills.mining >= 70) {
+                    recommendations.push("You're getting close to Amethyst. Consider pushing to 92 Mining.");
+                }
+
+                if (skills.woodcutting >= 90) {
+                    recommendations.push("You have access to Redwood Trees — one of the best AFK Woodcutting methods.");
+                }
+
+                if (skills.firemaking >= 50) {
+                    recommendations.push("You can do Wintertodt for great supplies and AFK training.");
+                }
+
+                if (skills.slayer >= 75) {
+                    recommendations.push("You can start Gargoyles for good drops and Slayer points.");
+                }
+
+                if (skills.runecrafting >= 27) {
+                    recommendations.push("Guardians of the Rift is available and is one of the best RC training methods.");
+                }
+
+                if (recommendations.length === 0) {
+                    recommendations.push("Keep training! More personalized recommendations will appear as your levels increase.");
+                }
+
+                recommendationsDiv.innerHTML = recommendations.map(rec => 
+                    `<div class="bg-slate-950 border border-slate-700 rounded-2xl p-4">${rec}</div>`
+                ).join('');
+
+            } catch (error) {
+                statsDisplay.innerHTML = `<div class="col-span-4 text-red-400">Error: ${error.message}. Make sure the username is spelled correctly and the account has stats.</div>`;
+            }
+        }
     </script>
 </body>
 </html>

@@ -21,19 +21,19 @@
         <div class="max-w-screen-2xl mx-auto px-8">
             <div class="px-8 py-5 flex items-center justify-between">
                 <div class="flex items-center gap-x-3">
-                    <div class="flex items-center gap-x-2.5">
+                    <a href="index.html" class="flex items-center gap-x-2.5 hover:opacity-90 transition-opacity">
                         <div class="w-9 h-9 bg-gradient-to-br from-amber-600 to-yellow-700 rounded-2xl flex items-center justify-center">
                             <i class="fa-solid fa-vault text-white text-2xl"></i>
                         </div>
                         <span class="font-display text-3xl font-semibold tracking-tighter">The Ironman Vault</span>
-                    </div>
+                    </a>
                 </div>
-                <div class="flex items-center gap-x-1 text-sm font-medium">
-                    <a href="index.html" class="px-5 py-2 text-slate-300 hover:text-white">Roadmap</a>
-                    <a href="quests.html" class="px-5 py-2 text-slate-300 hover:text-white">Quests</a>
-                    <a href="combat.html" class="px-5 py-2 text-[#d4af37]">Combat</a>
-                    <a href="afk.html" class="px-5 py-2 text-slate-300 hover:text-white">AFK</a>
-                    <a href="money.html" class="px-5 py-2 text-slate-300 hover:text-white">Money</a>
+                <div class="flex items-center gap-x-1 bg-[#2c2118] border border-[#5c4633] rounded-2xl p-1">
+                    <a href="index.html" class="px-4 py-1.5 text-sm font-medium text-slate-300 hover:text-white rounded-xl hover:bg-[#3a2a1f] transition-colors">Roadmap</a>
+                    <a href="quests.html" class="px-4 py-1.5 text-sm font-medium text-slate-300 hover:text-white rounded-xl hover:bg-[#3a2a1f] transition-colors">Quests</a>
+                    <a href="combat.html" class="px-4 py-1.5 text-sm font-medium text-[#d4af37] bg-[#3a2a1f] rounded-xl">Combat</a>
+                    <a href="afk.html" class="px-4 py-1.5 text-sm font-medium text-slate-300 hover:text-white rounded-xl hover:bg-[#3a2a1f] transition-colors">AFK</a>
+                    <a href="money.html" class="px-4 py-1.5 text-sm font-medium text-slate-300 hover:text-white rounded-xl hover:bg-[#3a2a1f] transition-colors">Money</a>
                 </div>
             </div>
         </div>
@@ -42,38 +42,145 @@
     <div class="max-w-screen-2xl mx-auto px-8 py-12">
         <div class="flex items-center gap-x-3 mb-8">
             <img src="https://oldschool.runescape.wiki/images/Attack_icon.png" alt="Combat" class="w-9 h-9">
-            <h1 class="text-4xl font-semibold tracking-tight">Combat Training by Mode</h1>
+            <h1 class="text-4xl font-semibold tracking-tight">Useful Combat Training (Ironman Focus)</h1>
         </div>
 
-        <!-- HCIM Safe Methods -->
-        <div class="mb-8">
-            <div class="inline-flex items-center gap-x-2 px-4 py-1.5 bg-red-900/30 border border-red-800 rounded-xl text-sm mb-4">
-                <i class="fa-solid fa-exclamation-triangle text-red-400"></i>
-                <span class="font-semibold text-red-300">Hardcore Ironman Safe Training</span>
-            </div>
+        <p class="text-slate-400 max-w-3xl mb-8">
+            Monsters worth killing on an Ironman for useful drops (resources, alchables, gear). Safe spot information included, especially useful for HCIM.
+        </p>
 
+        <!-- Early Game Useful -->
+        <div class="mb-10">
+            <h2 class="text-xl font-semibold mb-4 text-[#d4af37]">Early Game (Useful Drops)</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+
                 <div class="osrs-card rounded-xl p-6">
-                    <div class="font-semibold text-xl mb-2">Sand Crabs / Ammonite Crabs</div>
+                    <div class="font-semibold text-lg mb-2">Sand Crabs / Ammonite Crabs</div>
                     <div class="text-sm space-y-1">
                         <div><strong>Location:</strong> Fossil Island / Crabclaw Isle</div>
-                        <div><strong>Safe Spot:</strong> Behind rocks — very limited aggro</div>
-                        <div class="pt-2 text-emerald-700">Extremely low risk. Great for long AFK sessions.</div>
+                        <div><strong>Safe Spot:</strong> Stand behind rocks or use the small peninsula spots. Limited aggression range.</div>
+                        <div class="pt-1 text-emerald-700">Extremely safe and AFK-friendly. Great for early combat training on HCIM.</div>
                     </div>
                 </div>
 
                 <div class="osrs-card rounded-xl p-6">
-                    <div class="font-semibold text-xl mb-2">Gemstone Crab</div>
+                    <div class="font-semibold text-lg mb-2">Hill Giants</div>
                     <div class="text-sm space-y-1">
-                        <div><strong>Location:</strong> Varlamore</div>
-                        <div><strong>Style:</strong> Extremely AFK combat training</div>
-                        <div class="pt-2 text-emerald-700">One of the best low-effort combat methods currently available.</div>
+                        <div><strong>Location:</strong> Edgeville Dungeon or Giants' Plateau</div>
+                        <div><strong>Safe Spot:</strong> Use the safespot behind the pillar in Edgeville Dungeon (very reliable).</div>
+                        <div class="pt-1"><strong>Useful Drops:</strong> Big bones, limpwurt roots, runes, herbs</div>
                     </div>
                 </div>
+
+                <div class="osrs-card rounded-xl p-6">
+                    <div class="font-semibold text-lg mb-2">Moss Giants</div>
+                    <div class="text-sm space-y-1">
+                        <div><strong>Location:</strong> Varrock Sewers or Wilderness (safest in sewers)</div>
+                        <div><strong>Safe Spot:</strong> Use the safespot near the entrance in Varrock Sewers (behind the pipe area).</div>
+                        <div class="pt-1"><strong>Useful Drops:</strong> Herbs, seeds, mossy keys, runes</div>
+                    </div>
+                </div>
+
+                <div class="osrs-card rounded-xl p-6">
+                    <div class="font-semibold text-lg mb-2">Flesh Crawlers</div>
+                    <div class="text-sm space-y-1">
+                        <div><strong>Location:</strong> Stronghold of Security (2nd floor)</div>
+                        <div><strong>Safe Spot:</strong> Multiple safespots available using the pillars and corners.</div>
+                        <div class="pt-1"><strong>Useful Drops:</strong> Early runes, essence, herbs, seeds</div>
+                    </div>
+                </div>
+
+                <div class="osrs-card rounded-xl p-6">
+                    <div class="font-semibold text-lg mb-2">Experiments</div>
+                    <div class="text-sm space-y-1">
+                        <div><strong>Location:</strong> Experiments cave (near Observatory)</div>
+                        <div><strong>Safe Spot:</strong> Multiple reliable safespots using walls and corners.</div>
+                        <div class="pt-1"><strong>Useful Drops:</strong> Good herb drops, decent combat XP</div>
+                    </div>
+                </div>
+
+                <div class="osrs-card rounded-xl p-6">
+                    <div class="font-semibold text-lg mb-2">Chaos Druids</div>
+                    <div class="text-sm space-y-1">
+                        <div><strong>Location:</strong> Edgeville Dungeon or Taverley Dungeon</div>
+                        <div><strong>Safe Spot:</strong> Very safe safespot in Taverley Dungeon near entrance.</div>
+                        <div class="pt-1"><strong>Useful Drops:</strong> High quantity of herbs (excellent for early Herblore)</div>
+                    </div>
+                </div>
+
             </div>
         </div>
 
-        <p class="text-center text-slate-400 mt-8">More combat methods (Regular Ironman + Bronzeman) coming soon.</p>
+        <!-- Mid Game Useful -->
+        <div class="mb-10">
+            <h2 class="text-xl font-semibold mb-4 text-[#d4af37]">Mid Game (Strong Resources)</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+
+                <div class="osrs-card rounded-xl p-6">
+                    <div class="font-semibold text-lg mb-2">Gargoyles</div>
+                    <div class="text-sm space-y-1">
+                        <div><strong>Location:</strong> Slayer Tower (requires 75 Slayer)</div>
+                        <div><strong>Safe Spot:</strong> Use the safespot near the entrance or behind pillars.</div>
+                        <div class="pt-1"><strong>Useful Drops:</strong> Granite maul, runes, herbs, seeds, alchables</div>
+                    </div>
+                </div>
+
+                <div class="osrs-card rounded-xl p-6">
+                    <div class="font-semibold text-lg mb-2">Nechryael</div>
+                    <div class="text-sm space-y-1">
+                        <div><strong>Location:</strong> Slayer Tower (requires 80 Slayer)</div>
+                        <div><strong>Safe Spot:</strong> Safespot near the entrance area works well.</div>
+                        <div class="pt-1"><strong>Useful Drops:</strong> Seeds, herbs, runes, noted items</div>
+                    </div>
+                </div>
+
+                <div class="osrs-card rounded-xl p-6">
+                    <div class="font-semibold text-lg mb-2">Dust Devils</div>
+                    <div class="text-sm space-y-1">
+                        <div><strong>Location:</strong> Smoke Dungeon (requires 65 Slayer + facemask)</div>
+                        <div><strong>Safe Spot:</strong> Multiple good safespots available in the dungeon.</div>
+                        <div class="pt-1"><strong>Useful Drops:</strong> Herbs, seeds, noted drops, good alchables</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Mid Game Useful -->
+        <div class="mb-10">
+            <h2 class="text-xl font-semibold mb-4 text-[#d4af37]">Mid Game (Good Resources)</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+
+                <div class="osrs-card rounded-xl p-6">
+                    <div class="font-semibold text-lg mb-2">Chaos Druids</div>
+                    <div class="text-sm space-y-1">
+                        <div><strong>Location:</strong> Edgeville Dungeon or Taverley Dungeon</div>
+                        <div><strong>Safe Spot:</strong> Use the safespot in Taverley Dungeon near the entrance (very safe).</div>
+                        <div class="pt-1"><strong>Useful Drops:</strong> High quantity of herbs (great for early Herblore)</div>
+                    </div>
+                </div>
+
+                <div class="osrs-card rounded-xl p-6">
+                    <div class="font-semibold text-lg mb-2">Experiments</div>
+                    <div class="text-sm space-y-1">
+                        <div><strong>Location:</strong> Experiments cave (near Observatory)</div>
+                        <div><strong>Safe Spot:</strong> Multiple reliable safespots using the walls and corners.</div>
+                        <div class="pt-1"><strong>Useful Drops:</strong> Good herb drops and decent combat XP</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Note about Safe Spots -->
+        <div class="mt-8 p-5 bg-[#2c2118] border border-[#5c4633] rounded-xl text-sm">
+            <div class="font-semibold mb-2">About Safe Spots</div>
+            <div class="text-slate-400">
+                Most safe spot information above is based on common reliable locations. For visual diagrams of exact tile positions, visit the monster's page on the 
+                <a href="https://oldschool.runescape.wiki/" target="_blank" class="text-[#d4af37] hover:underline">OSRS Wiki</a> 
+                — they usually have excellent safespot images and maps.
+            </div>
+        </div>
     </div>
 
     <footer class="border-t border-[#5c4633] mt-12 py-6 text-center text-xs text-[#a38b6b]">
